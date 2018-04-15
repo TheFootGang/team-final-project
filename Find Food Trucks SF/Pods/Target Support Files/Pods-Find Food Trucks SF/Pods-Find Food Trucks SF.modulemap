@@ -1,0 +1,6 @@
+framework module Pods_Find_Food_Trucks_SF {
+  umbrella header "Pods-Find Food Trucks SF-umbrella.h"
+
+  export *
+  module * { export * }
+}
