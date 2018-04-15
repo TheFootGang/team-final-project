@@ -432,8 +432,8 @@
 			baseConfigurationReference = 7FE0447C3173A4118EB4B2D0 /* Pods-Find Food Trucks SF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BGJG9YVJR5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,6 +441,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,8 +452,8 @@
 			baseConfigurationReference = A36FA232D2A2F2C41AB0C8BC /* Pods-Find Food Trucks SF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BGJG9YVJR5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +461,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
