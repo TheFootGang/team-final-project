@@ -26,7 +26,7 @@ Top rated section listing all the top food trucks <br>
 ## Feature Implementation & Roles<br>
 Owner: Stanley Liu<br>
 ETA: 96 Hours<br>
-Feature: Getting the data from API and parsing json data.<br>
+Feature: Getting the data from API and parsing json data and splashscreen<br>
 
 Owner: Brandon Yu<br>
 ETA: 96 Hours<br>
