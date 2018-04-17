@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="byc-8y-o98">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,18 +38,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkl-7t-yex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-468" y="853.22338830584715"/>
+            <point key="canvasLocation" x="-468" y="734"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s61-1I-rCB">
             <objects>
-                <viewController id="TKw-iS-qPS" sceneMemberID="viewController">
+                <viewController id="TKw-iS-qPS" customClass="ViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wSe-Zu-DEo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="mutedStandard" pitchEnabled="NO" showsCompass="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCo-sh-7xF">
-                                <rect key="frame" x="0.0" y="77" width="490" height="590"/>
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sample UI and Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jU-8v-zHk">
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzq-6O-n99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485.60000000000002" y="-55.322338830584712"/>
+            <point key="canvasLocation" x="281" y="72"/>
         </scene>
         <!--Main View Screen-->
         <scene sceneID="7Ua-xZ-I8p">
@@ -139,7 +139,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dN9-QM-Ign" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="sl7-GX-rd0"/>
             </objects>
-            <point key="canvasLocation" x="486" y="694"/>
+            <point key="canvasLocation" x="281" y="734"/>
         </scene>
     </scenes>
 </document>
