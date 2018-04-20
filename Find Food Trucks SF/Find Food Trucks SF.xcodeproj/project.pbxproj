@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5532E20920833072005A1C35 /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20820833072005A1C35 /* FoodTruck.swift */; };
+		5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20A208330AB005A1C35 /* FoodTruckService.swift */; };
 		55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620DE207C9007008F0834 /* AppDelegate.swift */; };
 		55A620E1207C9007008F0834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620E0207C9007008F0834 /* ViewController.swift */; };
-		55A620E4207C9007008F0834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E2207C9007008F0834 /* Main.storyboard */; };
 		55A620E6207C900D008F0834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E5207C900D008F0834 /* Assets.xcassets */; };
 		55A620E9207C900D008F0834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E7207C900D008F0834 /* LaunchScreen.storyboard */; };
 		55A620F4207C900D008F0834 /* Find_Food_Trucks_SFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620F3207C900D008F0834 /* Find_Food_Trucks_SFTests.swift */; };
+		55C662B52086FDCC00A56125 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C662B42086FDCC00A56125 /* Main.storyboard */; };
+		EF3D8F3FEC2A8597CD927705 /* Pods_Find_Food_Trucks_SF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFBB139D1EF90BA3956F3EC /* Pods_Find_Food_Trucks_SF.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +29,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5532E20820833072005A1C35 /* FoodTruck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
+		5532E20A208330AB005A1C35 /* FoodTruckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckService.swift; sourceTree = "<group>"; };
 		55A620DB207C9007008F0834 /* Find Food Trucks SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find Food Trucks SF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A620DE207C9007008F0834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55A620E0207C9007008F0834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		55A620E3207C9007008F0834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55A620E5207C900D008F0834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55A620E8207C900D008F0834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55A620EA207C900D008F0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55A620EF207C900D008F0834 /* Find Food Trucks SFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Find Food Trucks SFTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A620F3207C900D008F0834 /* Find_Food_Trucks_SFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_Food_Trucks_SFTests.swift; sourceTree = "<group>"; };
 		55A620F5207C900D008F0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C662B42086FDCC00A56125 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7FE0447C3173A4118EB4B2D0 /* Pods-Find Food Trucks SF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Find Food Trucks SF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF.debug.xcconfig"; sourceTree = "<group>"; };
+		A36FA232D2A2F2C41AB0C8BC /* Pods-Find Food Trucks SF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Find Food Trucks SF.release.xcconfig"; path = "Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF.release.xcconfig"; sourceTree = "<group>"; };
+		FCFBB139D1EF90BA3956F3EC /* Pods_Find_Food_Trucks_SF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Find_Food_Trucks_SF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3D8F3FEC2A8597CD927705 /* Pods_Find_Food_Trucks_SF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12EF6A9B875AA8E1D8BD2FDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCFBB139D1EF90BA3956F3EC /* Pods_Find_Food_Trucks_SF.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55A620D2207C9007008F0834 = {
 			isa = PBXGroup;
 			children = (
 				55A620DD207C9007008F0834 /* Find Food Trucks SF */,
 				55A620F2207C900D008F0834 /* Find Food Trucks SFTests */,
 				55A620DC207C9007008F0834 /* Products */,
+				5EF0E7F9F0F97E09312DDE08 /* Pods */,
+				12EF6A9B875AA8E1D8BD2FDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +96,14 @@
 		55A620DD207C9007008F0834 /* Find Food Trucks SF */ = {
 			isa = PBXGroup;
 			children = (
+				55C662B42086FDCC00A56125 /* Main.storyboard */,
 				55A620DE207C9007008F0834 /* AppDelegate.swift */,
 				55A620E0207C9007008F0834 /* ViewController.swift */,
-				55A620E2207C9007008F0834 /* Main.storyboard */,
 				55A620E5207C900D008F0834 /* Assets.xcassets */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				55A620EA207C900D008F0834 /* Info.plist */,
+				5532E20820833072005A1C35 /* FoodTruck.swift */,
+				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -96,6 +117,15 @@
 			path = "Find Food Trucks SFTests";
 			sourceTree = "<group>";
 		};
+		5EF0E7F9F0F97E09312DDE08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FE0447C3173A4118EB4B2D0 /* Pods-Find Food Trucks SF.debug.xcconfig */,
+				A36FA232D2A2F2C41AB0C8BC /* Pods-Find Food Trucks SF.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55A620F8207C900D008F0834 /* Build configuration list for PBXNativeTarget "Find Food Trucks SF" */;
 			buildPhases = (
+				732E554900021EA956366347 /* [CP] Check Pods Manifest.lock */,
 				55A620D7207C9007008F0834 /* Sources */,
 				55A620D8207C9007008F0834 /* Frameworks */,
 				55A620D9207C9007008F0834 /* Resources */,
+				F007EF136C3CDA6A367AAAD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,8 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A620E9207C900D008F0834 /* LaunchScreen.storyboard in Resources */,
+				55C662B52086FDCC00A56125 /* Main.storyboard in Resources */,
 				55A620E6207C900D008F0834 /* Assets.xcassets in Resources */,
-				55A620E4207C9007008F0834 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +224,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		732E554900021EA956366347 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Find Food Trucks SF-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F007EF136C3CDA6A367AAAD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55A620D7207C9007008F0834 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +270,8 @@
 			files = (
 				55A620E1207C9007008F0834 /* ViewController.swift in Sources */,
 				55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */,
+				5532E20920833072005A1C35 /* FoodTruck.swift in Sources */,
+				5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +294,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		55A620E2207C9007008F0834 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55A620E3207C9007008F0834 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		55A620E7207C900D008F0834 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,10 +421,11 @@
 		};
 		55A620F9207C900D008F0834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FE0447C3173A4118EB4B2D0 /* Pods-Find Food Trucks SF.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BGJG9YVJR5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,6 +433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -374,10 +441,11 @@
 		};
 		55A620FA207C900D008F0834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A36FA232D2A2F2C41AB0C8BC /* Pods-Find Food Trucks SF.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BGJG9YVJR5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +453,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
