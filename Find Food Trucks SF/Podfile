@@ -4,4 +4,7 @@ use_frameworks!
 
 target 'Find Food Trucks SF' do
     pod 'Alamofire', '~> 4.7'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+
 end
