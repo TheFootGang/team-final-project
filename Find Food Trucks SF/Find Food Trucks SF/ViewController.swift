@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let service: FoodTruckService = FoodTruckService()
+    //let service: FoodTruckService = FoodTruckService()
     
-    override func viewDidLoad() {
+    /*
+     override func viewDidLoad() {
         super.viewDidLoad()
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let foodTrucks = foodTrucks else {
@@ -24,5 +25,6 @@ class ViewController: UIViewController {
             print(foodTrucks)
         }
     }
+    */
 
 }
