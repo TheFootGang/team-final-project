@@ -23,7 +23,7 @@ class FoodTruckService {
                     return
             }
             
-            var foodTrucks: [FoodTruck] = []
+            var foodTrucks: [FoodTruck] = []    
             
             for responseItem in responseJson {
                 if let foodTruck = FoodTruck(json: responseItem) {
