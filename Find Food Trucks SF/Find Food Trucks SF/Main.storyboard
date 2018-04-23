@@ -198,37 +198,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-<<<<<<< HEAD
-                        <viewLayoutGuide key="safeArea" id="8p1-wK-zgE"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" image="bookmark" selectedImage="bookmark" id="hrH-Fj-TId"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Y2-1C-HpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-927.20000000000005" y="-153.37331334332833"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="EZF-7W-yzN">
-            <objects>
-                <viewController id="seH-A8-DDE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0or-yk-ZOM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xwX-mQ-jG4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-=======
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pr9-J4-BRb" secondAttribute="bottom" id="CCo-zs-7w0"/>
                             <constraint firstAttribute="trailing" secondItem="pr9-J4-BRb" secondAttribute="trailing" id="aco-2i-CJ0"/>
                             <constraint firstItem="pr9-J4-BRb" firstAttribute="leading" secondItem="0or-yk-ZOM" secondAttribute="leading" id="fvI-dB-E6s"/>
                             <constraint firstItem="pr9-J4-BRb" firstAttribute="top" secondItem="mSU-2Z-ZA3" secondAttribute="top" id="jqI-fU-PEd"/>
                         </constraints>
->>>>>>> dev-maps
                         <viewLayoutGuide key="safeArea" id="mSU-2Z-ZA3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bookmarks" id="3U0-ag-793"/>
@@ -262,11 +237,7 @@
         <scene sceneID="ItM-dd-7P7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvj-M5-s5t" sceneMemberID="viewController">
-<<<<<<< HEAD
-                    <tabBarItem key="tabBarItem" title="" image="foodTruck" selectedImage="foodTruck" id="Usb-69-kME"/>
-=======
                     <tabBarItem key="tabBarItem" title="" image="bookmark" selectedImage="bookmark" id="Usb-69-kME"/>
->>>>>>> dev-maps
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vvW-o0-ah9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
