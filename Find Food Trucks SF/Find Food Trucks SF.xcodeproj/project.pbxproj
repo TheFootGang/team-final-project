@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EFD8E3E208F195100BDD00A /* FoodTruckClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */; };
 		5532E20920833072005A1C35 /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20820833072005A1C35 /* FoodTruck.swift */; };
 		5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20A208330AB005A1C35 /* FoodTruckService.swift */; };
 		55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620DE207C9007008F0834 /* AppDelegate.swift */; };
-		55A620E1207C9007008F0834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620E0207C9007008F0834 /* ViewController.swift */; };
 		55A620E6207C900D008F0834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E5207C900D008F0834 /* Assets.xcassets */; };
 		55A620E9207C900D008F0834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E7207C900D008F0834 /* LaunchScreen.storyboard */; };
 		55A620F4207C900D008F0834 /* Find_Food_Trucks_SFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620F3207C900D008F0834 /* Find_Food_Trucks_SFTests.swift */; };
@@ -31,11 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckClass.swift; sourceTree = "<group>"; };
 		5532E20820833072005A1C35 /* FoodTruck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
 		5532E20A208330AB005A1C35 /* FoodTruckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckService.swift; sourceTree = "<group>"; };
 		55A620DB207C9007008F0834 /* Find Food Trucks SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find Food Trucks SF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A620DE207C9007008F0834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55A620E0207C9007008F0834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55A620E5207C900D008F0834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55A620E8207C900D008F0834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55A620EA207C900D008F0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 			children = (
 				55C662B42086FDCC00A56125 /* Main.storyboard */,
 				55A620DE207C9007008F0834 /* AppDelegate.swift */,
-				55A620E0207C9007008F0834 /* ViewController.swift */,
 				55A620E5207C900D008F0834 /* Assets.xcassets */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				55A620EA207C900D008F0834 /* Info.plist */,
@@ -110,6 +109,7 @@
 				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
 				AE0BDDA5208D807A00DA700A /* BookmarkViewController.swift */,
 				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
+				1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -274,9 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A620E1207C9007008F0834 /* ViewController.swift in Sources */,
 				55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */,
 				5532E20920833072005A1C35 /* FoodTruck.swift in Sources */,
+				1EFD8E3E208F195100BDD00A /* FoodTruckClass.swift in Sources */,
 				AE0BDDA4208D65C700DA700A /* MapViewController.swift in Sources */,
 				AE0BDDA6208D807A00DA700A /* BookmarkViewController.swift in Sources */,
 				5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */,
@@ -435,7 +435,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -452,7 +455,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Find Food Trucks SF/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -469,7 +475,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGJG9YVJR5;
 				INFOPLIST_FILE = "Find Food Trucks SFTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SFTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -486,7 +496,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGJG9YVJR5;
 				INFOPLIST_FILE = "Find Food Trucks SFTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TheFootGang.Find-Food-Trucks-SFTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

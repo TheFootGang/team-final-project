@@ -3,6 +3,7 @@
 //  Find Food Trucks SF
 //
 //  Created by Mark on 4/22/18.
+//  Edited by Brandon on 4/23/18
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
@@ -27,6 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        mapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,10 +64,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 annotation.subtitle = foodTruck.daysHours
                 
                 self.mapView.addAnnotation(annotation)
+                let foodtruckclass = FoodTruckClass(title: foodTruck.name,
+                                      locationName: foodTruck.locationDescription,
+                                      category: "Category Here",
+                                      operatingTime: foodTruck.daysHours,
+                                      coordinate: CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude))
+                self.mapView.addAnnotation(foodtruckclass)
             }
         }
     }
     
+}
+extension MapViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? FoodTruckClass else { return nil }
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -3, y: 3)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
 }
     
 
