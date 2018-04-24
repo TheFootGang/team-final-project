@@ -6,8 +6,6 @@
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
-import Foundation
-
 import Alamofire
 
 class FoodTruckService {
