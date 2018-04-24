@@ -58,27 +58,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             for foodTruck in foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = foodTruck.name
-                annotation.subtitle = foodTruck.daysHours
-                
+                let annotation = FoodTruckAnnotation(title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
                 self.mapView.addAnnotation(annotation)
-                let foodtruckclass = FoodTruckClass(title: foodTruck.name,
-                                      locationName: foodTruck.locationDescription,
-                                      category: "Category Here",
-                                      operatingTime: foodTruck.daysHours,
-                                      coordinate: CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude))
-                self.mapView.addAnnotation(foodtruckclass)
             }
         }
     }
-    
 }
-extension MapViewController: MKMapViewDelegate {
 
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? FoodTruckClass else { return nil }
+        guard let annotation = annotation as? FoodTruckAnnotation else { return nil }
         let identifier = "marker"
         var view: MKMarkerAnnotationView
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
@@ -94,5 +83,6 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
 }
-    
+
+
 
