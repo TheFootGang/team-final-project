@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Food Truck Detail View Controller-->
         <scene sceneID="0Hf-DZ-WRn">
             <objects>
-                <viewController id="4KB-FC-N5a" customClass="ViewController" customModule="Find_Food_Trucks_SF" sceneMemberID="viewController">
+                <viewController id="4KB-FC-N5a" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Qp-1C-tV9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="-1089" y="-51"/>
         </scene>
-        <!--View Controller-->
+        <!--Food Truck Detail View Controller-->
         <scene sceneID="4bq-zc-pm3">
             <objects>
-                <viewController id="61E-pV-kD0" customClass="ViewController" customModule="Find_Food_Trucks_SF" sceneMemberID="viewController">
+                <viewController id="61E-pV-kD0" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rcM-Px-jSo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

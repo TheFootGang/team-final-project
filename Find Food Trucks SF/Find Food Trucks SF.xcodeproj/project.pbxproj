@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EFD8E3E208F195100BDD00A /* FoodTruckClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */; };
+		5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */; };
+		5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */; };
 		5532E20920833072005A1C35 /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20820833072005A1C35 /* FoodTruck.swift */; };
 		5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20A208330AB005A1C35 /* FoodTruckService.swift */; };
 		55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620DE207C9007008F0834 /* AppDelegate.swift */; };
@@ -31,7 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckClass.swift; sourceTree = "<group>"; };
+		5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTruckAnnotation.swift; sourceTree = "<group>"; };
+		5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckDetailViewController.swift; sourceTree = "<group>"; };
 		5532E20820833072005A1C35 /* FoodTruck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
 		5532E20A208330AB005A1C35 /* FoodTruckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckService.swift; sourceTree = "<group>"; };
 		55A620DB207C9007008F0834 /* Find Food Trucks SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find Food Trucks SF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,10 +108,11 @@
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				55A620EA207C900D008F0834 /* Info.plist */,
 				5532E20820833072005A1C35 /* FoodTruck.swift */,
+				5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */,
 				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
 				AE0BDDA5208D807A00DA700A /* BookmarkViewController.swift */,
 				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
-				1EFD8E3D208F195100BDD00A /* FoodTruckClass.swift */,
+				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -274,9 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */,
 				55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */,
 				5532E20920833072005A1C35 /* FoodTruck.swift in Sources */,
-				1EFD8E3E208F195100BDD00A /* FoodTruckClass.swift in Sources */,
+				5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */,
 				AE0BDDA4208D65C700DA700A /* MapViewController.swift in Sources */,
 				AE0BDDA6208D807A00DA700A /* BookmarkViewController.swift in Sources */,
 				5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */,
