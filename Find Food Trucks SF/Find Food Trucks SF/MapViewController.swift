@@ -14,7 +14,8 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    var foodTrucks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
     
     let manager = CLLocationManager()
@@ -56,9 +57,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             
-            for foodTruck in foodTrucks {
+            self.foodTrucks = foodTrucks
+            
+            for foodTruck in self.foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-                let annotation = FoodTruckAnnotation(title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
+                let annotation = FoodTruckAnnotation(id: foodTruck.id, title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
                 self.mapView.addAnnotation(annotation)
             }
         }
@@ -83,12 +86,31 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("Change to detail view")
-        if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "foodDetail", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "foodTruckDetailSegue") {
+            let vc = segue.destination as! FoodTruckDetailViewController
+            
+            guard
+                let annotationView = sender as? MKAnnotationView,
+                let annotation = annotationView.annotation as? FoodTruckAnnotation,
+                let id = annotation.id,
+                let foodTruck = self.foodTrucks.first(where: { $0.id == id })
+            else {
+                print("Error")
+                return
+            }
+            
+            // pass data to new vc
+            vc.foodTruck = foodTruck
         }
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "foodTruckDetailSegue", sender: view)
+        }
+    }
+    
     @IBAction func returnToMapViewController(_ segue: UIStoryboardSegue) {
         print("Close button")
     }
