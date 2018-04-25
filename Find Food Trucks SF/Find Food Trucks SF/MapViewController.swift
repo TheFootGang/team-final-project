@@ -82,6 +82,16 @@ extension MapViewController: MKMapViewDelegate {
         }
         return view
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("Change to detail view")
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "foodDetail", sender: self)
+        }
+    }
+    @IBAction func returnToMapViewController(_ segue: UIStoryboardSegue) {
+        print("Close button")
+    }
 }
 
 
