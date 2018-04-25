@@ -3,6 +3,7 @@
 //  Find Food Trucks SF
 //
 //  Created by Mark on 4/22/18.
+//  Edited by Brandon on 4/23/18
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
@@ -27,6 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        mapView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,16 +58,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             for foodTruck in foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = foodTruck.name
-                annotation.subtitle = foodTruck.daysHours
-                
+                let annotation = FoodTruckAnnotation(title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
                 self.mapView.addAnnotation(annotation)
             }
         }
     }
-    
 }
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? FoodTruckAnnotation else { return nil }
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -3, y: 3)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("Change to detail view")
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "foodDetail", sender: self)
+        }
+    }
+    @IBAction func returnToMapViewController(_ segue: UIStoryboardSegue) {
+        print("Close button")
+    }
+}
+
+
 

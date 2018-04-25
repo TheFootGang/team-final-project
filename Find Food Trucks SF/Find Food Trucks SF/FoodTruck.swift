@@ -26,8 +26,8 @@ struct FoodTruck {
             let latitude = json["latitude"] as? String,
             let longitude = json["longitude"] as? String,
             let daysHours = json["dayshours"] as? String
-            else {
-                return nil
+        else {
+            return nil
         }
         
         self.id = Int(id)!
