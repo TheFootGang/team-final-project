@@ -54,21 +54,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Hrs-5W-Rex">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmarkCell" id="Hrs-5W-Rex" customClass="BookmarkCell" customModule="Find_Food_Trucks_SF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hrs-5W-Rex" id="Zau-Hg-oj1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBk-p0-0GN">
-                                                    <rect key="frame" x="38" y="22" width="63" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTY-Zs-x8N">
+                                                    <rect key="frame" x="38" y="0.0" width="245" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTY-Zs-x8N">
-                                                    <rect key="frame" x="38" y="0.0" width="245" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBk-p0-0GN">
+                                                    <rect key="frame" x="38" y="22" width="63" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -82,8 +82,16 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="vTY-Zs-x8N" secondAttribute="trailing" constant="77" id="yZZ-Cz-Lkt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="xBk-p0-0GN" id="M5J-nX-tdo"/>
+                                            <outlet property="nameLabel" destination="vTY-Zs-x8N" id="kSt-zr-4XN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="seH-A8-DDE" id="83N-Hm-cTF"/>
+                                    <outlet property="delegate" destination="seH-A8-DDE" id="314-Dv-tBP"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,6 +104,10 @@
                         <viewLayoutGuide key="safeArea" id="mSU-2Z-ZA3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bookmarks" id="3U0-ag-793"/>
+                    <connections>
+                        <outlet property="tableView" destination="pr9-J4-BRb" id="Pqq-yY-ux5"/>
+                        <segue destination="ZVX-gU-vib" kind="show" identifier="foodTruckDetailSegue" id="Xay-o4-1fe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDb-cb-t9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,6 +134,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ItM-dd-7P7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shq-wA-3Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvj-M5-s5t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="bookmark" selectedImage="bookmark" id="Usb-69-kME"/>
                     <toolbarItems/>
@@ -134,14 +147,13 @@
                         <segue destination="seH-A8-DDE" kind="relationship" relationship="rootViewController" id="71e-RY-RCW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="shq-wA-3Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1089" y="-51"/>
         </scene>
         <!--Food Truck Detail View Controller-->
         <scene sceneID="4bq-zc-pm3">
             <objects>
-                <viewController storyboardIdentifier="foodTruckDetailSegue" id="61E-pV-kD0" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="61E-pV-kD0" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rcM-Px-jSo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +176,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ows-OL-bq0">
                                 <rect key="frame" x="327" y="25" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="bookmark"/>
+                                <state key="normal" title="Button" image="unbookmarked"/>
+                                <connections>
+                                    <action selector="bookmarkButtonClicked:" destination="61E-pV-kD0" eventType="touchUpInside" id="ox1-we-eMj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxB-LG-Hkl">
                                 <rect key="frame" x="13" y="350" width="346" height="50"/>
@@ -239,6 +254,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="FMl-6r-VtM" id="oYn-Vq-AFf"/>
+                        <outlet property="bookmarkButton" destination="ows-OL-bq0" id="f2O-o5-uhg"/>
                         <outlet property="daysHoursLabel" destination="ysR-vu-bB1" id="lYB-xC-C9v"/>
                         <outlet property="foodItemsTableView" destination="fXW-bA-5WC" id="bS9-Lg-zFc"/>
                         <outlet property="locationDescriptionLabel" destination="vxB-LG-Hkl" id="pKo-Yk-eGl"/>
@@ -248,75 +264,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbe-VY-SKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gmh-XO-5q3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-247.19999999999999" y="-786.65667166416802"/>
+            <point key="canvasLocation" x="-247" y="-786"/>
         </scene>
         <!--Food Truck Detail View Controller-->
-        <scene sceneID="Ky2-sM-lyl">
+        <scene sceneID="bD6-L6-4mp">
             <objects>
-                <viewController id="EAs-A8-igT" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sgV-qV-TrD">
+                <viewController id="ZVX-gU-vib" customClass="FoodTruckDetailViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKi-ff-GQL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days and Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-zD-6Ld">
-                                <rect key="frame" x="16" y="284" width="121" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days and Hours" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtF-jJ-KCs">
+                                <rect key="frame" x="13" y="288" width="346" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LB-mi-jKN">
-                                <rect key="frame" x="20" y="25.5" width="39" height="30.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-dk-y8U">
+                                <rect key="frame" x="13" y="25" width="39" height="30.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
-                                    <segue destination="TWW-zn-xbm" kind="unwind" unwindAction="returnToMapViewController:" id="zIO-CJ-Qtx"/>
+                                    <segue destination="iVY-Y9-u3G" kind="unwind" unwindAction="returnToMapViewController:" id="Smv-Cz-Lau"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSG-s9-iDD">
-                                <rect key="frame" x="336" y="24" width="86" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFH-DO-vpf">
+                                <rect key="frame" x="327" y="25" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="bookmark"/>
+                                <state key="normal" title="Button" image="unbookmarked"/>
+                                <connections>
+                                    <action selector="bookmarkButtonClicked:" destination="ZVX-gU-vib" eventType="touchUpInside" id="1eA-DZ-psd"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQO-xH-obE">
-                                <rect key="frame" x="16" y="323" width="63" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYp-FP-3ca">
+                                <rect key="frame" x="13" y="350" width="346" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OD-KH-8am">
-                                <rect key="frame" x="16" y="370" width="158" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-rk-YLJ">
+                                <rect key="frame" x="154" y="417" width="65" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ql-wZ-p1T">
-                                <rect key="frame" x="227" y="338" width="43" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ6-Ka-qFn">
-                                <rect key="frame" x="0.0" y="469" width="375" height="204"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfW-DF-fXY">
+                                <rect key="frame" x="0.0" y="458" width="375" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6m6-og-ij4">
-                                <rect key="frame" x="0.0" y="412" width="375" height="255"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-Bu-ddv">
+                                <rect key="frame" x="0.0" y="458" width="375" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2sl-7J-7FL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodItemCell" id="wdF-Gr-oER">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2sl-7J-7FL" id="8L8-Ss-gDB">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wdF-Gr-oER" id="s2D-U5-5zl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8p-Tk-cHM">
-                                                    <rect key="frame" x="143" y="11" width="77" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-CM-3XR">
+                                                    <rect key="frame" x="143" y="11" width="0.0" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -326,27 +338,54 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZVX-gU-vib" id="pZ9-Ps-ZWh"/>
+                                    <outlet property="delegate" destination="ZVX-gU-vib" id="WPW-xl-lwT"/>
+                                </connections>
                             </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6FR-Io-JZA">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QZm-pi-TOv">
                                 <rect key="frame" x="13" y="64" width="346" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KE-yB-1iL">
+                                <rect key="frame" x="13" y="247" width="346" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZA-u2-TZH">
+                                <rect key="frame" x="13" y="329" width="346" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gbr-G3-cau"/>
+                        <viewLayoutGuide key="safeArea" id="N1R-HQ-9Ok"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ftI-JP-Hfv">
-                        <barButtonItem key="rightBarButtonItem" image="bookmark" id="oZ2-59-c8M"/>
+                    <navigationItem key="navigationItem" id="ecE-Gp-hWV">
+                        <barButtonItem key="rightBarButtonItem" image="bookmark" id="HpX-EI-rwb"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="BZA-u2-TZH" id="mz6-ik-bxT"/>
+                        <outlet property="bookmarkButton" destination="JFH-DO-vpf" id="nMC-7Y-BDA"/>
+                        <outlet property="daysHoursLabel" destination="OtF-jJ-KCs" id="eLa-Xy-yeu"/>
+                        <outlet property="foodItemsTableView" destination="yBZ-Bu-ddv" id="0QJ-Sx-pQd"/>
+                        <outlet property="locationDescriptionLabel" destination="oYp-FP-3ca" id="qCu-Ba-Y0y"/>
+                        <outlet property="nameLabel" destination="0KE-yB-1iL" id="DUN-ym-FZm"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UuH-hD-P0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="TWW-zn-xbm" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Osp-Os-XZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iVY-Y9-u3G" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="566" y="-52"/>
+            <point key="canvasLocation" x="495" y="-53"/>
         </scene>
     </scenes>
     <resources>
         <image name="bookmark" width="32" height="32"/>
         <image name="foodTruck" width="32" height="32"/>
+        <image name="unbookmarked" width="32" height="32"/>
     </resources>
 </document>
