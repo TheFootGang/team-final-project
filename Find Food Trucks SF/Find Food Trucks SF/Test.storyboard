@@ -30,32 +30,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJL-44-lOb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJL-44-lOb">
                                                     <rect key="frame" x="8" y="0.0" width="379" height="23"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="23" id="S4k-CO-og7"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-zo-A9Q">
-                                                    <rect key="frame" x="8" y="11" width="326" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-zo-A9Q">
+                                                    <rect key="frame" x="8" y="11" width="367" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0T9-zo-A9Q" secondAttribute="trailing" constant="26" id="Atz-MG-DKi"/>
-                                                <constraint firstItem="0T9-zo-A9Q" firstAttribute="top" secondItem="BKx-8z-0kw" secondAttribute="topMargin" id="E1G-jw-4AZ"/>
-                                                <constraint firstItem="bJL-44-lOb" firstAttribute="top" secondItem="BKx-8z-0kw" secondAttribute="top" id="LTS-dq-onl"/>
-                                                <constraint firstItem="0T9-zo-A9Q" firstAttribute="leading" secondItem="bJL-44-lOb" secondAttribute="leading" id="Wmk-2N-g5I"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="bJL-44-lOb" secondAttribute="bottom" constant="10" id="ZyN-bs-mP4"/>
-                                                <constraint firstItem="bJL-44-lOb" firstAttribute="leading" secondItem="BKx-8z-0kw" secondAttribute="leadingMargin" constant="-7" id="wAH-oI-KaY"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="bJL-44-lOb" secondAttribute="trailing" constant="-27" id="wjE-60-GRW"/>
-                                                <constraint firstItem="0T9-zo-A9Q" firstAttribute="bottom" secondItem="BKx-8z-0kw" secondAttribute="bottomMargin" constant="10" id="x4q-2w-WSo"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="0T9-zo-A9Q" id="0Dj-sv-rUI"/>
@@ -75,8 +64,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-iE-vMu">
-                                <rect key="frame" x="8" y="25" width="63" height="34"/>
+                                <rect key="frame" x="8" y="13" width="63" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="tapRefresh:" destination="qrj-V3-Sl8" eventType="touchDown" id="rqY-bd-Mpj"/>
