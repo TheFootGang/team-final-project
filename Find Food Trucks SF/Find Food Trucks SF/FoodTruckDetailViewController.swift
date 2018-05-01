@@ -32,6 +32,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self

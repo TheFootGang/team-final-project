@@ -37,6 +37,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         addMapAnnotations()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]

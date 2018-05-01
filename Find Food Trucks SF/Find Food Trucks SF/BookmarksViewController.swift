@@ -15,8 +15,18 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
 
     var bookmarks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
+    let userDefaults = UserDefaults.standard
+    @IBAction func tapRefresh(_ sender: UIButton) {
+        
+        viewDidLoad()
+        for bookmarked in self.bookmarks {
+            print(bookmarked.name)
+        }
+        self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
+        self.bookmarks.removeAll()
         super.viewDidLoad()
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let trucks = foodTrucks else {
@@ -27,13 +37,21 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
             let keys = Array(UserDefaults.standard.dictionaryRepresentation().keys)
             for key in keys {
                 if let key = Int(key) {
-                    if let truck = trucks.first(where: { $0.id == key }) {
+                    if let truck = trucks.first(where: { $0.id == key}) {
                         self.bookmarks.append(truck)
                     }
                 }
             }
             self.tableView.reloadData()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
