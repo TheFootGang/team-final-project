@@ -32,12 +32,21 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         }
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        mapView.removeAnnotations(mapView.annotations)
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = foodTruck.name
+        mapView.addAnnotation(annotation)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
         let annotation = MKPointAnnotation()
@@ -56,15 +65,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             bookmarkButton.setImage(UIImage(named:"unbookmarked"), for: .normal)
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last! as CLLocation
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region: MKCoordinateRegion = MKCoordinateRegionMake(center, span)
 
-        mapView.setRegion(region, animated: true)
-    }
     
     // Returns whether the bookmark is stored in UserDefaults
     func isBookmarked() -> Bool {
