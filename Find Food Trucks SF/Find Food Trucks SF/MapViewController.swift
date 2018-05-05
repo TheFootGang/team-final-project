@@ -27,6 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = CLLocationDistance(0.1)
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
