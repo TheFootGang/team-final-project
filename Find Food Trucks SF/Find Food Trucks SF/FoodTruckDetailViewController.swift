@@ -21,6 +21,8 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    var region: MKCoordinateRegion!
+
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
@@ -36,17 +38,22 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         mapView.removeAnnotations(mapView.annotations)
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-        let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-        mapView.setRegion(region, animated: true)
+        if self.region != nil {
+            mapView.setRegion(region, animated: true)
+        }
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = foodTruck.name
         mapView.addAnnotation(annotation)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = CLLocationDistance(0.1)
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
         let annotation = MKPointAnnotation()
@@ -64,6 +71,17 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         } else {
             bookmarkButton.setImage(UIImage(named:"unbookmarked"), for: .normal)
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.02, 0.02)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        
+        self.region = region
+        self.mapView.setRegion(region, animated: false)
+        self.mapView.showsUserLocation = true
     }
 
     
