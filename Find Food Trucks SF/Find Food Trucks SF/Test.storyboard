@@ -154,9 +154,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-UR-VL9">
-                                <rect key="frame" x="13" y="26" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-UR-VL9">
+                                <rect key="frame" x="13" y="26" width="32" height="30"/>
+                                <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeButtonClicked:" destination="6kK-fW-egn" eventType="touchUpInside" id="QqX-YC-ccL"/>
                                 </connections>
@@ -317,6 +317,7 @@
     </scenes>
     <resources>
         <image name="bookmark" width="32" height="32"/>
+        <image name="close" width="32" height="30"/>
         <image name="foodTruck" width="32" height="32"/>
         <image name="unbookmarked" width="32" height="32"/>
     </resources>
