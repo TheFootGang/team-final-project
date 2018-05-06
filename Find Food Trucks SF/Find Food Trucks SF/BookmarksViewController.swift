@@ -16,8 +16,8 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     var bookmarks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
     let userDefaults = UserDefaults.standard
+    
     @IBAction func tapRefresh(_ sender: UIButton) {
-        
         viewDidLoad()
         for bookmarked in self.bookmarks {
             print(bookmarked.name)
@@ -26,8 +26,12 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewDidLoad() {
-        self.bookmarks.removeAll()
         super.viewDidLoad()
+
+        // Hide extra seperator lines
+        // self.tableView.tableFooterView = UIView()
+        
+        self.bookmarks.removeAll()
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let trucks = foodTrucks else {
                 print("Error fetching food trucks.")
@@ -62,7 +66,7 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell") as! BookmarkCell
         let bookmark = bookmarks[indexPath.row]
         cell.nameLabel.text = bookmark.name
-        cell.addressLabel.text = bookmark.address
+        cell.addressLabel.text = bookmark.address.capitalized
         
         return cell
     }

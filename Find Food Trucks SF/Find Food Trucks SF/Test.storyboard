@@ -19,28 +19,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mff-QL-Aou">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mff-QL-Aou">
                                 <rect key="frame" x="0.0" y="65" width="375" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="DUV-gX-zwY" userLabel="Footer">
+                                    <rect key="frame" x="0.0" y="128" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmarkCell" id="ixf-2K-Vr4" customClass="BookmarkCell" customModule="Find_Food_Trucks_SF" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmarkCell" rowHeight="100" id="ixf-2K-Vr4" customClass="BookmarkCell" customModule="Find_Food_Trucks_SF" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ixf-2K-Vr4" id="BKx-8z-0kw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJL-44-lOb">
-                                                    <rect key="frame" x="8" y="0.0" width="379" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-zo-A9Q">
+                                                    <rect key="frame" x="39" y="46" width="336" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-zo-A9Q">
-                                                    <rect key="frame" x="8" y="11" width="367" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJL-44-lOb">
+                                                    <rect key="frame" x="39" y="27" width="348" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -58,13 +64,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSy-pI-YWC">
-                                <rect key="frame" x="144" y="20" width="86" height="21"/>
+                                <rect key="frame" x="152" y="36" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-iE-vMu">
-                                <rect key="frame" x="8" y="13" width="63" height="34"/>
+                                <rect key="frame" x="16" y="29" width="63" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Refresh"/>
@@ -75,9 +81,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qSy-pI-YWC" firstAttribute="top" secondItem="jap-Zr-ell" secondAttribute="top" id="557-RH-kdU"/>
-                            <constraint firstItem="qSy-pI-YWC" firstAttribute="centerX" secondItem="mff-QL-Aou" secondAttribute="centerX" id="7Ng-kz-i1z"/>
-                            <constraint firstItem="mff-QL-Aou" firstAttribute="top" secondItem="qSy-pI-YWC" secondAttribute="bottom" constant="24" id="I8W-ek-fmu"/>
+                            <constraint firstItem="qSy-pI-YWC" firstAttribute="top" secondItem="jap-Zr-ell" secondAttribute="top" constant="16" id="557-RH-kdU"/>
+                            <constraint firstItem="qSy-pI-YWC" firstAttribute="centerX" secondItem="mff-QL-Aou" secondAttribute="centerX" constant="7.5" id="7Ng-kz-i1z"/>
+                            <constraint firstItem="mff-QL-Aou" firstAttribute="top" secondItem="qSy-pI-YWC" secondAttribute="bottom" constant="8" id="I8W-ek-fmu"/>
                             <constraint firstAttribute="trailing" secondItem="mff-QL-Aou" secondAttribute="trailing" id="Lsd-oO-rVe"/>
                             <constraint firstAttribute="bottomMargin" secondItem="mff-QL-Aou" secondAttribute="bottom" constant="-39" id="MZv-sv-ja5"/>
                             <constraint firstItem="mff-QL-Aou" firstAttribute="leading" secondItem="w8S-Oy-6Aa" secondAttribute="leading" id="XqX-xP-deE"/>
@@ -322,6 +328,6 @@
         <image name="unbookmarked" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RwG-tg-m6O"/>
+        <segue reference="cwa-fI-603"/>
     </inferredMetricsTieBreakers>
 </document>

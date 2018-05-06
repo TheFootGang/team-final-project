@@ -52,7 +52,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(0.1)
+        locationManager.distanceFilter = CLLocationDistance(0.5)
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
