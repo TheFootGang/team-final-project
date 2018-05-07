@@ -36,7 +36,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewWillAppear(_ animated: Bool) {
         mapView.removeAnnotations(mapView.annotations)
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
         if self.region != nil {
             mapView.setRegion(region, animated: true)
@@ -110,8 +109,9 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foodItemCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "foodItemCell", for: indexPath)
         cell.textLabel?.text = foodTruck.foodItems[indexPath.row].capitalized
+        cell.textLabel?.font = UIFont(name: "Futura", size: 17)
         return cell
     }
     
