@@ -27,9 +27,6 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Hide extra seperator lines
-        // self.tableView.tableFooterView = UIView()
         
         self.bookmarks.removeAll()
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
