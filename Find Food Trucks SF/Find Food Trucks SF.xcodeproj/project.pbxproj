@@ -16,8 +16,7 @@
 		55A620E6207C900D008F0834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E5207C900D008F0834 /* Assets.xcassets */; };
 		55A620E9207C900D008F0834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E7207C900D008F0834 /* LaunchScreen.storyboard */; };
 		55A620F4207C900D008F0834 /* Find_Food_Trucks_SFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620F3207C900D008F0834 /* Find_Food_Trucks_SFTests.swift */; };
-		55C662B52086FDCC00A56125 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C662B42086FDCC00A56125 /* Main.storyboard */; };
-		55D3615720967BDC006063D4 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D3615620967BDC006063D4 /* Test.storyboard */; };
+		55D3615720967BDC006063D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D3615620967BDC006063D4 /* Main.storyboard */; };
 		AE0BDDA4208D65C700DA700A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BDDA3208D65C700DA700A /* MapViewController.swift */; };
 		AE0BDDA6208D807A00DA700A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BDDA5208D807A00DA700A /* BookmarksViewController.swift */; };
 		EF3D8F3FEC2A8597CD927705 /* Pods_Find_Food_Trucks_SF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFBB139D1EF90BA3956F3EC /* Pods_Find_Food_Trucks_SF.framework */; };
@@ -47,8 +46,7 @@
 		55A620EF207C900D008F0834 /* Find Food Trucks SFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Find Food Trucks SFTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A620F3207C900D008F0834 /* Find_Food_Trucks_SFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_Food_Trucks_SFTests.swift; sourceTree = "<group>"; };
 		55A620F5207C900D008F0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55C662B42086FDCC00A56125 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		55D3615620967BDC006063D4 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		55D3615620967BDC006063D4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7FE0447C3173A4118EB4B2D0 /* Pods-Find Food Trucks SF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Find Food Trucks SF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF.debug.xcconfig"; sourceTree = "<group>"; };
 		A36FA232D2A2F2C41AB0C8BC /* Pods-Find Food Trucks SF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Find Food Trucks SF.release.xcconfig"; path = "Pods/Target Support Files/Pods-Find Food Trucks SF/Pods-Find Food Trucks SF.release.xcconfig"; sourceTree = "<group>"; };
 		AE0BDDA3208D65C700DA700A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 		55A620DD207C9007008F0834 /* Find Food Trucks SF */ = {
 			isa = PBXGroup;
 			children = (
-				55C662B42086FDCC00A56125 /* Main.storyboard */,
 				55A620DE207C9007008F0834 /* AppDelegate.swift */,
 				55A620E5207C900D008F0834 /* Assets.xcassets */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
@@ -118,7 +115,7 @@
 				558CFFD92092A6E7008DE76D /* BookmarkCell.swift */,
 				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
 				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
-				55D3615620967BDC006063D4 /* Test.storyboard */,
+				55D3615620967BDC006063D4 /* Main.storyboard */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -225,8 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A620E9207C900D008F0834 /* LaunchScreen.storyboard in Resources */,
-				55C662B52086FDCC00A56125 /* Main.storyboard in Resources */,
-				55D3615720967BDC006063D4 /* Test.storyboard in Resources */,
+				55D3615720967BDC006063D4 /* Main.storyboard in Resources */,
 				55A620E6207C900D008F0834 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
