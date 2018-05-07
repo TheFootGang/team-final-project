@@ -16,18 +16,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func unwindToMapViewFromDetail(segue:UIStoryboardSegue) {}
 
     var foodTrucks: [FoodTruck] = []
-    let service: FoodTruckService = FoodTruckService()
-    
-    let locationManager = CLLocationManager()
     var region: MKCoordinateRegion!
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    let service: FoodTruckService = FoodTruckService()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(0.5)
+        locationManager.distanceFilter = CLLocationDistance(1)
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -38,6 +37,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         addMapAnnotations()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
@@ -71,11 +71,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: MKMapViewDelegate {
+extension MapViewController {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? FoodTruckAnnotation else { return nil }
-        let identifier = "marker"
+        
         var view: MKMarkerAnnotationView
+        let identifier = MKMapViewDefaultAnnotationViewReuseIdentifier
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
@@ -86,7 +87,14 @@ extension MapViewController: MKMapViewDelegate {
             view.calloutOffset = CGPoint(x: -3, y: 3)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
+        
         return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "mapToDetailSegueId", sender: view)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,12 +114,6 @@ extension MapViewController: MKMapViewDelegate {
             // pass data to new vc
             vc.foodTruck = foodTruck
             vc.unwindSegueId = "unwindToMapViewSegueId"
-        }
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "mapToDetailSegueId", sender: view)
         }
     }
 }

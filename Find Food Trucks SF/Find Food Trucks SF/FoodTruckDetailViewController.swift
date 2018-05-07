@@ -11,8 +11,9 @@ import MapKit
 
 class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
-    var foodTruck: FoodTruck!
     var unwindSegueId: String!
+    var foodTruck: FoodTruck!
+    var region: MKCoordinateRegion!
     var locationManager = CLLocationManager()
     @IBOutlet weak var foodItemsTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,7 +22,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-    var region: MKCoordinateRegion!
 
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
@@ -37,6 +37,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     override func viewWillAppear(_ animated: Bool) {
         mapView.removeAnnotations(mapView.annotations)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
+        
         if self.region != nil {
             mapView.setRegion(region, animated: true)
         }
