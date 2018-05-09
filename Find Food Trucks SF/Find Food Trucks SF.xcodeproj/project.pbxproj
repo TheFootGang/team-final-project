@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */; };
 		5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */; };
+		552A9DAE20A39956005E483A /* FoodTruckMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */; };
+		552A9DB020A3999D005E483A /* FoodTruckClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */; };
 		5532E20920833072005A1C35 /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20820833072005A1C35 /* FoodTruck.swift */; };
 		5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20A208330AB005A1C35 /* FoodTruckService.swift */; };
 		558CFFDA2092A6E7008DE76D /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CFFD92092A6E7008DE76D /* BookmarkCell.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTruckAnnotation.swift; sourceTree = "<group>"; };
 		5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckDetailViewController.swift; sourceTree = "<group>"; };
+		552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckMarkerView.swift; sourceTree = "<group>"; };
+		552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckClusterView.swift; sourceTree = "<group>"; };
 		5532E20820833072005A1C35 /* FoodTruck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
 		5532E20A208330AB005A1C35 /* FoodTruckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckService.swift; sourceTree = "<group>"; };
 		558CFFD92092A6E7008DE76D /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
@@ -81,6 +85,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		552A9DB120A399EB005E483A /* MapAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */,
+				552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */,
+				552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */,
+			);
+			path = MapAnnotations;
+			sourceTree = "<group>";
+		};
 		55A620D2207C9007008F0834 = {
 			isa = PBXGroup;
 			children = (
@@ -104,18 +118,18 @@
 		55A620DD207C9007008F0834 /* Find Food Trucks SF */ = {
 			isa = PBXGroup;
 			children = (
-				55A620DE207C9007008F0834 /* AppDelegate.swift */,
 				55A620E5207C900D008F0834 /* Assets.xcassets */,
+				55A620DE207C9007008F0834 /* AppDelegate.swift */,
+				552A9DB120A399EB005E483A /* MapAnnotations */,
+				55D3615620967BDC006063D4 /* Main.storyboard */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				55A620EA207C900D008F0834 /* Info.plist */,
 				5532E20820833072005A1C35 /* FoodTruck.swift */,
-				5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */,
 				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
 				AE0BDDA5208D807A00DA700A /* BookmarksViewController.swift */,
 				558CFFD92092A6E7008DE76D /* BookmarkCell.swift */,
-				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
 				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
-				55D3615620967BDC006063D4 /* Main.storyboard */,
+				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -280,8 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A9DB020A3999D005E483A /* FoodTruckClusterView.swift in Sources */,
 				5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */,
 				55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */,
+				552A9DAE20A39956005E483A /* FoodTruckMarkerView.swift in Sources */,
 				5532E20920833072005A1C35 /* FoodTruck.swift in Sources */,
 				558CFFDA2092A6E7008DE76D /* BookmarkCell.swift in Sources */,
 				5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */,
