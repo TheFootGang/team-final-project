@@ -8,8 +8,7 @@
 
 import MapKit
 
-class FoodTruckMarkerView
-: MKMarkerAnnotationView {
+class FoodTruckMarkerView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard (newValue as? FoodTruckAnnotation) != nil else { return }

@@ -85,14 +85,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		552A9DB120A399EB005E483A /* MapAnnotations */ = {
+		552A9DB120A399EB005E483A /* MapMarkers */ = {
 			isa = PBXGroup;
 			children = (
 				5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */,
 				552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */,
 				552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */,
 			);
-			path = MapAnnotations;
+			path = MapMarkers;
 			sourceTree = "<group>";
 		};
 		55A620D2207C9007008F0834 = {
@@ -120,7 +120,7 @@
 			children = (
 				55A620E5207C900D008F0834 /* Assets.xcassets */,
 				55A620DE207C9007008F0834 /* AppDelegate.swift */,
-				552A9DB120A399EB005E483A /* MapAnnotations */,
+				552A9DB120A399EB005E483A /* MapMarkers */,
 				55D3615620967BDC006063D4 /* Main.storyboard */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				55A620EA207C900D008F0834 /* Info.plist */,
@@ -128,8 +128,8 @@
 				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
 				AE0BDDA5208D807A00DA700A /* BookmarksViewController.swift */,
 				558CFFD92092A6E7008DE76D /* BookmarkCell.swift */,
-				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
 				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
+				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
