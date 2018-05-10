@@ -17,7 +17,7 @@ struct FoodTruck {
     let daysHours: String
     let foodItems: [String]
     let locationDescription: String
-    
+
     init?(json: [String: Any]) {
         guard
             let id = json["objectid"] as? String,
@@ -49,4 +49,5 @@ struct FoodTruck {
             self.locationDescription = ""
         }
     }
+    
 }

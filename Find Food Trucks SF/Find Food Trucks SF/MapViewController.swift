@@ -12,23 +12,23 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
-
     @IBOutlet weak var mapView: MKMapView!
+    @IBAction func unwindToMapViewFromDetail(segue:UIStoryboardSegue) {}
 
+    var foodTrucks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
     
-    let manager = CLLocationManager()
+    let locationManager = CLLocationManager()
     var region: MKCoordinateRegion!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
-        mapView.delegate = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +36,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.setRegion(region, animated: true)
         }
         addMapAnnotations()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -56,9 +59,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
             
-            for foodTruck in foodTrucks {
+            self.foodTrucks = foodTrucks
+            
+            for foodTruck in self.foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-                let annotation = FoodTruckAnnotation(title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
+                let annotation = FoodTruckAnnotation(id: foodTruck.id, title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
                 self.mapView.addAnnotation(annotation)
             }
         }
@@ -83,14 +88,30 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("Change to detail view")
-        if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "foodDetail", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "mapToDetailSegueId") {
+            let vc = segue.destination as! FoodTruckDetailViewController
+            
+            guard
+                let annotationView = sender as? MKAnnotationView,
+                let annotation = annotationView.annotation as? FoodTruckAnnotation,
+                let id = annotation.id,
+                let foodTruck = self.foodTrucks.first(where: { $0.id == id })
+            else {
+                print("Error")
+                return
+            }
+            
+            // pass data to new vc
+            vc.foodTruck = foodTruck
+            vc.unwindSegueId = "unwindToMapViewSegueId"
         }
     }
-    @IBAction func returnToMapViewController(_ segue: UIStoryboardSegue) {
-        print("Close button")
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "mapToDetailSegueId", sender: view)
+        }
     }
 }
 
