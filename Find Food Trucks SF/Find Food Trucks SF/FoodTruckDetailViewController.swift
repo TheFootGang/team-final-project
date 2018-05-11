@@ -43,6 +43,22 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             print(eta.description)
         })
     }
+    
+    func displayDirectionPath(directions: MKDirections) {
+        directions.calculate(completionHandler: { response, error in
+            guard let response = response else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            let route = response.routes[0]
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            
+            let mapRect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(mapRect), animated: false)
+        })
+    }
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
             sender.setImage( UIImage(named:"unbookmarked"), for: .normal)
