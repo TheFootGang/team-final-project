@@ -34,7 +34,15 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             }
         }
     }
-    
+    func displayETA(directions: MKDirections) {
+        directions.calculateETA(completionHandler: { response, error in
+            guard let response = response else {
+                return
+            }
+            let eta = response.expectedTravelTime
+            print(eta.description)
+        })
+    }
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
             sender.setImage( UIImage(named:"unbookmarked"), for: .normal)
