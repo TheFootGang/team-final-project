@@ -261,16 +261,25 @@
                                 <rect key="frame" x="42" y="91" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Walk"/>
+                                <connections>
+                                    <action selector="transportButtonTapped:" destination="6kK-fW-egn" eventType="touchUpInside" id="Ua8-1q-1w8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u5-OY-RYI">
                                 <rect key="frame" x="44" y="159" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Car"/>
+                                <connections>
+                                    <action selector="transportButtonTapped:" destination="6kK-fW-egn" eventType="touchUpInside" id="tVU-wy-o91"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoP-Ch-J5X">
                                 <rect key="frame" x="36" y="224" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Transit"/>
+                                <connections>
+                                    <action selector="transportButtonTapped:" destination="6kK-fW-egn" eventType="touchUpInside" id="fPp-Y7-M9y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
