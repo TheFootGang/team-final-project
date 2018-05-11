@@ -27,7 +27,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBAction func transportButtonTapped(_ sender: UIButton) {
         if let buttonText = sender.titleLabel?.text {
             switch(buttonText) {
-            case "Walk": print("Clicked walk"); break;
+            case "Walk": print("Clicked walk"); break;//
             case "Car": print("Clicked car"); break;
             case "Transit": print("Clicked transit"); break;
             default: print("")
