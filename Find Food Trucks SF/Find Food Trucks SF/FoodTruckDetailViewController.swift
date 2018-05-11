@@ -24,6 +24,17 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func transportButtonTapped(_ sender: UIButton) {
+        if let buttonText = sender.titleLabel?.text {
+            switch(buttonText) {
+            case "Walk": print("Clicked walk"); break;
+            case "Car": print("Clicked car"); break;
+            case "Transit": print("Clicked transit"); break;
+            default: print("")
+            }
+        }
+    }
+    
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
             sender.setImage( UIImage(named:"unbookmarked"), for: .normal)
