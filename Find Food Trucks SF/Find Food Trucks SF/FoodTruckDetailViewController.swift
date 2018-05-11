@@ -3,13 +3,14 @@
 //  Find Food Trucks SF
 //
 //  Created by Stanley on 4/24/18.
+//  Edited by Wagner on 5/10/18.
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var unwindSegueId: String!
     var foodTruck: FoodTruck!
@@ -22,7 +23,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
@@ -50,14 +50,21 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(0.5)
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            mapView.showsUserLocation = true
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = CLLocationDistance(0.5)
+            locationManager.startUpdatingLocation()
+        }
+        
+        let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+        
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+        annotation.coordinate = foodTruckCoords
         mapView.addAnnotation(annotation)
         
         nameLabel.text = foodTruck.name
@@ -81,9 +88,8 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         self.region = region
         self.mapView.setRegion(region, animated: false)
-        self.mapView.showsUserLocation = true
     }
-
+    
     
     // Returns whether the bookmark is stored in UserDefaults
     func isBookmarked() -> Bool {
@@ -121,3 +127,4 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
 }
+
