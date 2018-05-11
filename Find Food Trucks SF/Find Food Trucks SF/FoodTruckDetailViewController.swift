@@ -3,13 +3,14 @@
 //  Find Food Trucks SF
 //
 //  Created by Stanley on 4/24/18.
+//  Edited by Wagner on 5/10/18.
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var unwindSegueId: String!
     var foodTruck: FoodTruck!
@@ -22,7 +23,67 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    @IBAction func transportButtonTapped(_ sender: UIButton) {
+        if let buttonText = sender.titleLabel?.text {
+            switch(buttonText) {
+            case "Walk": print("Clicked walk"); break;//
+            case "Car": print("Clicked car"); break;
+            case "Transit": print("Clicked transit"); break;
+            default: print("")
+            }
+        }
+    }
+    func displayETA(directions: MKDirections) {
+        directions.calculateETA(completionHandler: { response, error in
+            guard let response = response else {
+                return
+            }
+            let eta = response.expectedTravelTime
+            print(eta.description)
+        })
+    }
+    
+    func displayDirectionPath(directions: MKDirections) {
+        directions.calculate(completionHandler: { response, error in
+            guard let response = response else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            let route = response.routes[0]
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            
+            let mapRect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(mapRect), animated: false)
+        })
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.brown
+        renderer.lineWidth = 3.0
+        
+        return renderer
+    }
+    func getDirections(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, transportType: MKDirectionsTransportType) -> MKDirections {
+        let sourcePlacement = MKPlacemark(coordinate: source)
+        let destPlacement = MKPlacemark(coordinate: destination)
+        let sourceItem = MKMapItem(placemark: sourcePlacement)
+        let destItem = MKMapItem(placemark: destPlacement)
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceItem
+        directionRequest.destination = destItem
+        directionRequest.transportType = transportType
+        
+        let directions = MKDirections(request: directionRequest)
+        
+        return directions
+    }
+    
+    
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
@@ -50,14 +111,29 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = CLLocationDistance(0.5)
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            mapView.showsUserLocation = true
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = CLLocationDistance(0.5)
+            locationManager.startUpdatingLocation()
+        }
+        
+        let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+        
+        // only show directions if user allows his location
+        if let userLocation = locationManager.location {
+            let userCoords = userLocation.coordinate;
+            let transportType = MKDirectionsTransportType.walking
+            let directions = getDirections(source: userCoords, destination: foodTruckCoords, transportType: transportType)
+            
+            displayETA(directions: directions)
+        }
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+        annotation.coordinate = foodTruckCoords
         mapView.addAnnotation(annotation)
         
         nameLabel.text = foodTruck.name
@@ -81,9 +157,8 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         self.region = region
         self.mapView.setRegion(region, animated: false)
-        self.mapView.showsUserLocation = true
     }
-
+    
     
     // Returns whether the bookmark is stored in UserDefaults
     func isBookmarked() -> Bool {
@@ -121,3 +196,4 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
 }
+
