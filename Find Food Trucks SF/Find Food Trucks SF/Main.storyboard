@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A2m-L3-16u">
-                                <rect key="frame" x="0.0" y="36" width="375" height="594"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
                                 <connections>
                                     <outlet property="delegate" destination="w16-pa-8md" id="sm8-3r-UV6"/>
                                 </connections>
@@ -118,13 +118,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A2m-L3-16u" firstAttribute="leading" secondItem="aDt-Hh-Bbl" secondAttribute="leading" id="Svt-uB-kT5"/>
-                            <constraint firstItem="A2m-L3-16u" firstAttribute="top" secondItem="rA8-ZJ-LXC" secondAttribute="top" constant="16" id="W6H-Fc-T5m"/>
-                            <constraint firstItem="A2m-L3-16u" firstAttribute="centerY" secondItem="aDt-Hh-Bbl" secondAttribute="centerY" id="bY4-VZ-1Yn"/>
+                            <constraint firstItem="A2m-L3-16u" firstAttribute="top" secondItem="rA8-ZJ-LXC" secondAttribute="top" constant="-20" id="W6H-Fc-T5m"/>
+                            <constraint firstItem="A2m-L3-16u" firstAttribute="centerY" secondItem="aDt-Hh-Bbl" secondAttribute="centerY" constant="-18.5" id="bY4-VZ-1Yn"/>
                             <constraint firstAttribute="trailing" secondItem="A2m-L3-16u" secondAttribute="trailing" id="yeB-st-UuM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rA8-ZJ-LXC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Foodtrucks" image="foodTruck" selectedImage="truck" id="Ysq-S0-qhq"/>
+                    <tabBarItem key="tabBarItem" title="FoodTrucks" image="truck" selectedImage="truck" id="Ysq-S0-qhq"/>
                     <connections>
                         <outlet property="mapView" destination="A2m-L3-16u" id="r5w-hA-s5a"/>
                         <segue destination="6kK-fW-egn" kind="show" identifier="mapToDetailSegueId" id="RwG-tg-m6O"/>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCH-m7-X2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="-418"/>
+            <point key="canvasLocation" x="348" y="-418.74062968515744"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0rQ-0d-Eh2">
@@ -318,7 +318,6 @@
     <resources>
         <image name="bookmark" width="21" height="32"/>
         <image name="close" width="32" height="30"/>
-        <image name="foodTruck" width="32" height="32"/>
         <image name="truck" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
