@@ -123,6 +123,14 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
         
+        // only show directions if user allows his location
+        if let userLocation = locationManager.location {
+            let userCoords = userLocation.coordinate;
+            let transportType = MKDirectionsTransportType.walking
+            let directions = getDirections(source: userCoords, destination: foodTruckCoords, transportType: transportType)
+            
+            displayETA(directions: directions)
+        }
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = foodTruckCoords
