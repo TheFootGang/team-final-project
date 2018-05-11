@@ -59,6 +59,15 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             self.mapView.setRegion(MKCoordinateRegionForMapRect(mapRect), animated: false)
         })
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.brown
+        renderer.lineWidth = 3.0
+        
+        return renderer
+    }
+    
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
             sender.setImage( UIImage(named:"unbookmarked"), for: .normal)
