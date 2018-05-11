@@ -67,6 +67,23 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         return renderer
     }
+    func getDirections(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, transportType: MKDirectionsTransportType) -> MKDirections {
+        let sourcePlacement = MKPlacemark(coordinate: source)
+        let destPlacement = MKPlacemark(coordinate: destination)
+        let sourceItem = MKMapItem(placemark: sourcePlacement)
+        let destItem = MKMapItem(placemark: destPlacement)
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceItem
+        directionRequest.destination = destItem
+        directionRequest.transportType = transportType
+        
+        let directions = MKDirections(request: directionRequest)
+        
+        return directions
+    }
+    
+    
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
