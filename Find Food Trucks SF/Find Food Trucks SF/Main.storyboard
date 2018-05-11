@@ -124,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rA8-ZJ-LXC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Foodtrucks" image="foodTruck" selectedImage="foodTruck" id="Ysq-S0-qhq"/>
+                    <tabBarItem key="tabBarItem" title="Foodtrucks" image="foodTruck" selectedImage="truck" id="Ysq-S0-qhq"/>
                     <connections>
                         <outlet property="mapView" destination="A2m-L3-16u" id="r5w-hA-s5a"/>
                         <segue destination="6kK-fW-egn" kind="show" identifier="mapToDetailSegueId" id="RwG-tg-m6O"/>
@@ -161,42 +161,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-UR-VL9">
-                                <rect key="frame" x="13" y="25" width="32" height="30"/>
+                                <rect key="frame" x="13" y="24" width="32" height="30"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeButtonClicked:" destination="6kK-fW-egn" eventType="touchUpInside" id="QqX-YC-ccL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQX-Jh-bla">
-                                <rect key="frame" x="16" y="398" width="346" height="22.5"/>
+                                <rect key="frame" x="16" y="397" width="346" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldU-4w-FQM">
-                                <rect key="frame" x="330" y="25" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="P8q-3e-HsP"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="unbookmarked"/>
-                                <connections>
-                                    <action selector="bookmarkButtonClicked:" destination="6kK-fW-egn" eventType="touchUpInside" id="m91-Ym-Kac"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days and Hours" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVG-IR-o6g">
-                                <rect key="frame" x="16" y="368" width="346" height="22.5"/>
+                                <rect key="frame" x="16" y="367" width="346" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8E-Hc-Vmt">
-                                <rect key="frame" x="16" y="428" width="346" height="19.5"/>
+                                <rect key="frame" x="16" y="427" width="346" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPk-T7-TSX">
-                                <rect key="frame" x="16" y="327" width="346" height="33"/>
+                                <rect key="frame" x="16" y="326" width="346" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="m0q-dZ-QPG"/>
                                 </constraints>
@@ -205,10 +195,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-6o-o7p">
-                                <rect key="frame" x="0.0" y="609.5" width="375" height="57.5"/>
+                                <rect key="frame" x="0.0" y="608.5" width="375" height="58.5"/>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LEa-P9-PIm">
-                                <rect key="frame" x="0.0" y="497.5" width="375" height="169.5"/>
+                                <rect key="frame" x="0.0" y="496.5" width="375" height="170.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
@@ -240,7 +230,7 @@
                                 </connections>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PP4-sI-nru">
-                                <rect key="frame" x="13" y="64" width="349" height="255"/>
+                                <rect key="frame" x="13" y="63" width="349" height="255"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="255" id="BCu-CI-Qch"/>
                                 </constraints>
@@ -249,7 +239,7 @@
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SL-uP-Jpp">
-                                <rect key="frame" x="152" y="505" width="71" height="33"/>
+                                <rect key="frame" x="152" y="504" width="71" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="IwW-nu-GgZ"/>
                                 </constraints>
@@ -257,6 +247,17 @@
                                 <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldU-4w-FQM">
+                                <rect key="frame" x="338" y="25" width="24" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="P8q-3e-HsP"/>
+                                    <constraint firstAttribute="height" constant="30" id="WdO-Uc-cK4"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="bookmark"/>
+                                <connections>
+                                    <action selector="bookmarkButtonClicked:" destination="6kK-fW-egn" eventType="touchUpInside" id="m91-Ym-Kac"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -315,10 +316,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="32" height="32"/>
+        <image name="bookmark" width="21" height="32"/>
         <image name="close" width="32" height="30"/>
         <image name="foodTruck" width="32" height="32"/>
-        <image name="unbookmarked" width="32" height="32"/>
+        <image name="truck" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RwG-tg-m6O"/>

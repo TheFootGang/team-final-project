@@ -26,10 +26,10 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
         if isBookmarked() {
-            sender.setImage( UIImage(named:"unbookmarked"), for: .normal)
+            sender.setImage( UIImage(named:"bookmark"), for: .normal)
             removeBookmark()
         } else {
-            sender.setImage(UIImage(named:"bookmark"), for: .normal)
+            sender.setImage(UIImage(named:"bookmarked"), for: .normal)
             bookmark()
         }
     }
@@ -67,9 +67,9 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         // update the image to match the current bookmark state
         if isBookmarked() {
-            bookmarkButton.setImage(UIImage(named:"bookmark"), for: .normal)
+            bookmarkButton.setImage(UIImage(named:"bookmarked"), for: .normal)
         } else {
-            bookmarkButton.setImage(UIImage(named:"unbookmarked"), for: .normal)
+            bookmarkButton.setImage(UIImage(named:"bookmark"), for: .normal)
         }
     }
     

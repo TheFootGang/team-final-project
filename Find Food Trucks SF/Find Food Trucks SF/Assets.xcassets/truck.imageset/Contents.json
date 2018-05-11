@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "foodTruck@1x.png",
+      "filename" : "truck@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "foodTruck@2x.png",
+      "filename" : "truck@2x.png",
       "scale" : "2x"
     },
     {
