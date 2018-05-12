@@ -65,7 +65,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let region: MKCoordinateRegion = MKCoordinateRegionMake(coordinates, span)
         self.mapView.setRegion(region, animated: false)
     }
-    
+    //test
     private func addMapAnnotations() {
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let foodTrucks = foodTrucks else {
