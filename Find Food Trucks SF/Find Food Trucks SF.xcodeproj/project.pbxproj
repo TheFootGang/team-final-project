@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ED11C5F20A8360D0013B1C4 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */; };
 		5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */; };
 		5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */; };
 		552A9DAE20A39956005E483A /* FoodTruckMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTruckAnnotation.swift; sourceTree = "<group>"; };
 		5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckDetailViewController.swift; sourceTree = "<group>"; };
 		552A9DAD20A39956005E483A /* FoodTruckMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckMarkerView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				552A9DB120A399EB005E483A /* MapMarkers */,
 				55D3615620967BDC006063D4 /* Main.storyboard */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
+				1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */,
 				55A620EA207C900D008F0834 /* Info.plist */,
 				5532E20820833072005A1C35 /* FoodTruck.swift */,
 				5532E20A208330AB005A1C35 /* FoodTruckService.swift */,
@@ -301,6 +304,7 @@
 				5532E20920833072005A1C35 /* FoodTruck.swift in Sources */,
 				558CFFDA2092A6E7008DE76D /* BookmarkCell.swift in Sources */,
 				5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */,
+				1ED11C5F20A8360D0013B1C4 /* NearbyViewController.swift in Sources */,
 				AE0BDDA4208D65C700DA700A /* MapViewController.swift in Sources */,
 				AE0BDDA6208D807A00DA700A /* BookmarksViewController.swift in Sources */,
 				5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */,
