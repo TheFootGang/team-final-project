@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Nearby-->
         <scene sceneID="Nob-wY-d3e">
             <objects>
-                <tableViewController id="u8F-53-dWj" sceneMemberID="viewController">
+                <tableViewController id="u8F-53-dWj" customClass="NearbyViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dmk-OX-W3a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,10 +34,12 @@
                             <outlet property="delegate" destination="u8F-53-dWj" id="1PI-Pf-gYm"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Nearby" id="Muv-Nr-W7W"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9Q-9i-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="597"/>
+            <point key="canvasLocation" x="-577" y="671"/>
         </scene>
         <!--BookmarkViewController-->
         <scene sceneID="6vp-ji-NGQ">
@@ -173,6 +175,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="w16-pa-8md" kind="relationship" relationship="viewControllers" id="0pj-Ql-gb7"/>
+                        <segue destination="u8F-53-dWj" kind="relationship" relationship="viewControllers" id="8oc-t5-FFA"/>
                         <segue destination="qrj-V3-Sl8" kind="relationship" relationship="viewControllers" id="m1N-u9-W86"/>
                     </connections>
                 </tabBarController>

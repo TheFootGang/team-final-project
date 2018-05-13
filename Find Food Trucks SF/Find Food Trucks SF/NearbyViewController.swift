@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class NearbyViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource{
     
     var foodTrucks: [FoodTruck] = []
     var nearbyList = [String]()
