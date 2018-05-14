@@ -17,7 +17,7 @@ enum TransportType: Int {
 }
 
 class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    let defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), span: MKCoordinateSpanMake(0.02, 0.02))
     let bookmarksManager: BookmarksManager = BookmarksManager()
     var unwindSegueId: String!
     var foodTruck: FoodTruck!
@@ -25,6 +25,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     var locationManager = CLLocationManager()
     var currentTransportType: MKDirectionsTransportType = .walking
     var lastTransportButtonTapped: UIButton?
+    
     @IBOutlet weak var etaLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var carTransportButton: UIButton!
@@ -80,6 +81,8 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
         
+        let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+        
         if userAllowsLocation() {
             mapView.showsUserLocation = true
             locationManager.delegate = self
@@ -90,11 +93,15 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             styleTransportButtons(button: walkTransportButton)
             styleTransportButtons(button: carTransportButton)
         } else {
+            walkTransportButton.removeFromSuperview()
+            carTransportButton.removeFromSuperview()
             etaLabel.removeFromSuperview()
             directionsLabel.removeFromSuperview()
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region = MKCoordinateRegion(center: foodTruckCoords, span: span)
+            mapView.setRegion(region, animated: false)
         }
-
-        let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = foodTruckCoords
@@ -110,20 +117,8 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         } else {
             bookmarkButton.setImage(UIImage(named:"bookmark"), for: .normal)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        mapView.removeAnnotations(mapView.annotations)
+        
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
-        
-        if self.region != nil {
-            mapView.setRegion(region, animated: true)
-        }
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = foodTruck.name
-        mapView.addAnnotation(annotation)
     }
     
     func userAllowsLocation() -> Bool {
@@ -131,16 +126,13 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func getDirections() -> MKDirections? {
-        let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
-        // only show directions if user allows his location
-        if userAllowsLocation(), let userLocation = locationManager.location {
+        if let userLocation = locationManager.location {
+            let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
             let userCoords = userLocation.coordinate
             let transportType = currentTransportType
             let directions = getDirections(source: userCoords, destination: foodTruckCoords, transportType: transportType)
-            print("User allowed his location")
             return directions
         } else {
-            print("User did not allow his location")
             return nil
         }
     }
