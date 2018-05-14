@@ -102,7 +102,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         
         nameLabel.text = foodTruck.name
         daysHoursLabel.text = foodTruck.daysHours
-        addressLabel.text = foodTruck.address
+        addressLabel.text = foodTruck.address.capitalized
         
         // update the image to match the current bookmark state
         if bookmarksManager.isBookmarked(id: foodTruck.id) {
