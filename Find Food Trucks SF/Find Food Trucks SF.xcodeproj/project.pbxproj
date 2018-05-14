@@ -13,6 +13,7 @@
 		552A9DB020A3999D005E483A /* FoodTruckClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */; };
 		5532E20920833072005A1C35 /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20820833072005A1C35 /* FoodTruck.swift */; };
 		5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5532E20A208330AB005A1C35 /* FoodTruckService.swift */; };
+		55698D9F20A91B0A002DA83B /* BookmarksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55698D9E20A91B0A002DA83B /* BookmarksManager.swift */; };
 		558CFFDA2092A6E7008DE76D /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558CFFD92092A6E7008DE76D /* BookmarkCell.swift */; };
 		55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A620DE207C9007008F0834 /* AppDelegate.swift */; };
 		55A620E6207C900D008F0834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A620E5207C900D008F0834 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		552A9DAF20A3999D005E483A /* FoodTruckClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckClusterView.swift; sourceTree = "<group>"; };
 		5532E20820833072005A1C35 /* FoodTruck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
 		5532E20A208330AB005A1C35 /* FoodTruckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckService.swift; sourceTree = "<group>"; };
+		55698D9E20A91B0A002DA83B /* BookmarksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksManager.swift; sourceTree = "<group>"; };
 		558CFFD92092A6E7008DE76D /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 		55A620DB207C9007008F0834 /* Find Food Trucks SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Find Food Trucks SF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A620DE207C9007008F0834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				558CFFD92092A6E7008DE76D /* BookmarkCell.swift */,
 				AE0BDDA3208D65C700DA700A /* MapViewController.swift */,
 				5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */,
+				55698D9E20A91B0A002DA83B /* BookmarksManager.swift */,
 			);
 			path = "Find Food Trucks SF";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				558CFFDA2092A6E7008DE76D /* BookmarkCell.swift in Sources */,
 				5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */,
 				AE0BDDA4208D65C700DA700A /* MapViewController.swift in Sources */,
+				55698D9F20A91B0A002DA83B /* BookmarksManager.swift in Sources */,
 				AE0BDDA6208D807A00DA700A /* BookmarksViewController.swift in Sources */,
 				5532E20B208330AB005A1C35 /* FoodTruckService.swift in Sources */,
 			);
