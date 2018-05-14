@@ -23,8 +23,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     let service: FoodTruckService = FoodTruckService()
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         mapView.delegate = self
         
         mapView.register(FoodTruckMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -84,6 +94,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 self.mapView.addAnnotation(annotation)
             }
         }
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered:Bool) {
+        activityIndicatorView.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
 }
 

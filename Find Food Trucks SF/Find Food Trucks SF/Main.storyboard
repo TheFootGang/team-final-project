@@ -145,6 +145,11 @@
                                     <outlet property="delegate" destination="w16-pa-8md" id="sm8-3r-UV6"/>
                                 </connections>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="p6W-pN-YQW">
+                                <rect key="frame" x="169" y="297" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -157,6 +162,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="FoodTrucks" image="truck" selectedImage="truck" id="Ysq-S0-qhq"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="p6W-pN-YQW" id="YW4-Xt-csx"/>
                         <outlet property="mapView" destination="A2m-L3-16u" id="r5w-hA-s5a"/>
                         <segue destination="6kK-fW-egn" kind="show" identifier="mapToDetailSegueId" id="RwG-tg-m6O"/>
                     </connections>
@@ -392,6 +398,6 @@
         <image name="walk" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cwa-fI-603"/>
+        <segue reference="RwG-tg-m6O"/>
     </inferredMetricsTieBreakers>
 </document>
