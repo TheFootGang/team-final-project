@@ -11,6 +11,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Nearby-->
+        <scene sceneID="Nob-wY-d3e">
+            <objects>
+                <tableViewController id="u8F-53-dWj" customClass="NearbyViewController" customModule="Find_Food_Trucks_SF" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dmk-OX-W3a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="uIm-Yl-CVJ">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VC1-dR-ia0">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VC1-dR-ia0" id="9jH-jC-jng">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u8F-53-dWj" id="tAU-Wb-sLF"/>
+                            <outlet property="delegate" destination="u8F-53-dWj" id="J0o-ew-zXx"/>
+                            <outlet property="prefetchDataSource" destination="u8F-53-dWj" id="YM1-YQ-4Na"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Nearby" id="Muv-Nr-W7W"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myTableView" destination="dmk-OX-W3a" id="5yZ-4I-h9k"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9Q-9i-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="348" y="1159"/>
+        </scene>
         <!--BookmarkViewController-->
         <scene sceneID="6vp-ji-NGQ">
             <objects>
@@ -141,6 +180,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="w16-pa-8md" kind="relationship" relationship="viewControllers" id="0pj-Ql-gb7"/>
+                        <segue destination="u8F-53-dWj" kind="relationship" relationship="viewControllers" id="8oc-t5-FFA"/>
                         <segue destination="qrj-V3-Sl8" kind="relationship" relationship="viewControllers" id="m1N-u9-W86"/>
                     </connections>
                 </tabBarController>

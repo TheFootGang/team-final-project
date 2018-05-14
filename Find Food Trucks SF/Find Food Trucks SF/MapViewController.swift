@@ -65,6 +65,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let region: MKCoordinateRegion = MKCoordinateRegionMake(coordinates, span)
         self.mapView.setRegion(region, animated: false)
     }
+
     
     private func addMapAnnotations() {
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
@@ -77,12 +78,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             for foodTruck in self.foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
+                
                 let annotation = FoodTruckAnnotation(id: foodTruck.id, title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
+                
                 self.mapView.addAnnotation(annotation)
             }
         }
     }
 }
+
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
