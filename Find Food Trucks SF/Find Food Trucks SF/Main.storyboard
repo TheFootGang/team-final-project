@@ -42,7 +42,7 @@
                             <outlet property="prefetchDataSource" destination="u8F-53-dWj" id="YM1-YQ-4Na"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Nearby" selectedImage="nearby" id="Muv-Nr-W7W"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" image="nearby" selectedImage="nearby" id="Muv-Nr-W7W"/>
                     <connections>
                         <outlet property="myTableView" destination="dmk-OX-W3a" id="5yZ-4I-h9k"/>
                     </connections>
