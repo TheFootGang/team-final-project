@@ -17,14 +17,6 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     let service: FoodTruckService = FoodTruckService()
     let userDefaults = UserDefaults.standard
     
-    @IBAction func tapRefresh(_ sender: UIButton) {
-        viewDidLoad()
-        for bookmarked in self.bookmarks {
-            print(bookmarked.name)
-        }
-        self.tableView.reloadData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +44,8 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
+        self.bookmarks.removeAll()
+        viewDidLoad()
         self.tableView.reloadData()
     }
     
