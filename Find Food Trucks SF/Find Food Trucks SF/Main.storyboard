@@ -42,15 +42,14 @@
                             <outlet property="prefetchDataSource" destination="u8F-53-dWj" id="YM1-YQ-4Na"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Nearby" id="Muv-Nr-W7W"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" selectedImage="nearby" id="Muv-Nr-W7W"/>
                     <connections>
                         <outlet property="myTableView" destination="dmk-OX-W3a" id="5yZ-4I-h9k"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9Q-9i-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="1158.1709145427287"/>
+            <point key="canvasLocation" x="-23" y="1074"/>
         </scene>
         <!--BookmarkViewController-->
         <scene sceneID="6vp-ji-NGQ">
@@ -388,6 +387,7 @@
         <image name="bookmark" width="21" height="32"/>
         <image name="car" width="84" height="84"/>
         <image name="close" width="32" height="30"/>
+        <image name="nearby" width="32" height="32"/>
         <image name="truck" width="64" height="64"/>
         <image name="walk" width="84" height="84"/>
     </resources>

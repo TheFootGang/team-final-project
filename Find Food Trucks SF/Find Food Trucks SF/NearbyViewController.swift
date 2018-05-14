@@ -56,7 +56,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             self.myTableView.reloadData()
             print(self.nearbyList.count)
         // Do any additional setup after loading the view, typically from a nib.
-    }
+        }
     }
     
     override func didReceiveMemoryWarning() {
