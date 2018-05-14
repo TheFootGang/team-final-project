@@ -11,7 +11,6 @@ import UIKit
 class BookmarksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func unwindToBookmarksFromDetail(segue:UIStoryboardSegue) {}
 
     var bookmarks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
@@ -72,7 +71,6 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
                 let selectedRow = indexPath.row
                 let vc = segue.destination as! FoodTruckDetailViewController
                 vc.foodTruck = self.bookmarks[selectedRow]
-                vc.unwindSegueId = "unwindToBookmarksSegueId"
             }
         }
     }

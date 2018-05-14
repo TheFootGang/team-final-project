@@ -19,7 +19,6 @@ enum TransportType: Int {
 class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     let defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), span: MKCoordinateSpanMake(0.02, 0.02))
     let bookmarksManager: BookmarksManager = BookmarksManager()
-    var unwindSegueId: String!
     var foodTruck: FoodTruck!
     var region: MKCoordinateRegion!
     var locationManager = CLLocationManager()
@@ -206,8 +205,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     @IBAction func closeButtonClicked(_ sender: Any) {
-        performSegue(withIdentifier: unwindSegueId, sender: self)
+        dismiss(animated: true, completion: nil)
     }
-    
 }
 

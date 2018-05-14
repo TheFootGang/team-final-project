@@ -45,11 +45,12 @@
                     <tabBarItem key="tabBarItem" title="Nearby" image="nearby" selectedImage="nearby" id="Muv-Nr-W7W"/>
                     <connections>
                         <outlet property="myTableView" destination="dmk-OX-W3a" id="5yZ-4I-h9k"/>
+                        <segue destination="6kK-fW-egn" kind="presentation" identifier="nearbyToDetailSegueId" id="fqk-KU-Hke"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9Q-9i-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="1074"/>
+            <point key="canvasLocation" x="142" y="496"/>
         </scene>
         <!--BookmarkViewController-->
         <scene sceneID="6vp-ji-NGQ">
@@ -124,12 +125,12 @@
                     <tabBarItem key="tabBarItem" title="Bookmark" image="bookmark" selectedImage="bookmark" id="hK6-W2-Tw6"/>
                     <connections>
                         <outlet property="tableView" destination="mff-QL-Aou" id="n8M-UN-yLc"/>
-                        <segue destination="6kK-fW-egn" kind="show" identifier="bookmarksToDetailSegueId" id="cwa-fI-603"/>
+                        <segue destination="6kK-fW-egn" kind="presentation" identifier="bookmarksToDetailSegueId" id="cwa-fI-603"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYs-Ib-WvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="361.16941529235385"/>
+            <point key="canvasLocation" x="142" y="-824"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="GPM-gS-Azz">
@@ -164,12 +165,12 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="p6W-pN-YQW" id="YW4-Xt-csx"/>
                         <outlet property="mapView" destination="A2m-L3-16u" id="r5w-hA-s5a"/>
-                        <segue destination="6kK-fW-egn" kind="show" identifier="mapToDetailSegueId" id="RwG-tg-m6O"/>
+                        <segue destination="6kK-fW-egn" kind="presentation" identifier="mapToDetailSegueId" id="RwG-tg-m6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCH-m7-X2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="-418.74062968515744"/>
+            <point key="canvasLocation" x="142" y="-161"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0rQ-0d-Eh2">
@@ -193,7 +194,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zv7-bD-lqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-855" y="-89"/>
+            <point key="canvasLocation" x="-1161" y="-104"/>
         </scene>
         <!--Food Truck Detail View Controller-->
         <scene sceneID="leH-bU-rno">
@@ -379,14 +380,11 @@
                         <outlet property="mapView" destination="PP4-sI-nru" id="x7F-9R-JSU"/>
                         <outlet property="nameLabel" destination="KPk-T7-TSX" id="E5D-PJ-D93"/>
                         <outlet property="walkTransportButton" destination="88x-y6-0RT" id="6ja-UE-k99"/>
-                        <segue destination="Xah-44-vHa" kind="unwind" identifier="unwindToMapViewSegueId" unwindAction="unwindToMapViewFromDetailWithSegue:" id="acA-fL-vBd"/>
-                        <segue destination="Xah-44-vHa" kind="unwind" identifier="unwindToBookmarksSegueId" unwindAction="unwindToBookmarksFromDetailWithSegue:" id="ey9-OH-Bqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ist-QS-Z4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Xah-44-vHa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1512.8" y="-88.605697151424295"/>
+            <point key="canvasLocation" x="1233" y="-233"/>
         </scene>
     </scenes>
     <resources>
@@ -398,6 +396,6 @@
         <image name="walk" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RwG-tg-m6O"/>
+        <segue reference="cwa-fI-603"/>
     </inferredMetricsTieBreakers>
 </document>

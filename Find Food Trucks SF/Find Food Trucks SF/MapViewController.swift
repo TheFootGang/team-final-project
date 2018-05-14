@@ -14,7 +14,6 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
-    @IBAction func unwindToMapViewFromDetail(segue:UIStoryboardSegue) {}
     
     var foodTrucks: [FoodTruck] = []
     
@@ -126,7 +125,6 @@ extension MapViewController: MKMapViewDelegate {
             
             // pass data to new vc
             vc.foodTruck = foodTruck
-            vc.unwindSegueId = "unwindToMapViewSegueId"
         }
     }
 }
