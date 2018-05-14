@@ -63,15 +63,6 @@
                                     <outlet property="delegate" destination="qrj-V3-Sl8" id="520-H6-C7o"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PB-iE-vMu">
-                                <rect key="frame" x="16" y="29" width="63" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Refresh"/>
-                                <connections>
-                                    <action selector="tapRefresh:" destination="qrj-V3-Sl8" eventType="touchDown" id="rqY-bd-Mpj"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSy-pI-YWC">
                                 <rect key="frame" x="141.5" y="33" width="100" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
