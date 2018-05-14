@@ -49,7 +49,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             for foodTruck in trucks{
             let coordinate1 = CLLocation(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
                 let distanceInMeters = self.coordinate0.distance(from: coordinate1)
-            if distanceInMeters <= 1609 {
+            if distanceInMeters <= 1609 && !self.nearbyList.contains(foodTruck.name){//find nearby foodtrucks within 1 mile radius, no duplicates.
                 self.nearbyList.append(foodTruck.name)
             }
         }
