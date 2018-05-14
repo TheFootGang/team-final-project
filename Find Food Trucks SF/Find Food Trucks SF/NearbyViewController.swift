@@ -1,5 +1,5 @@
 //
-//  NearbyFoodTruckViewController.swift
+//  NearbyViewController.swift
 //  Find Food Trucks SF
 //
 //  Created by Brandon on 5/11/18.
@@ -9,14 +9,18 @@
 import UIKit
 import CoreLocation
 
-class NearbyViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource{
+class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    @IBOutlet weak var myTableView: UITableView!
     
     var foodTrucks: [FoodTruck] = []
-    var nearbyList = [String]()
+    let service: FoodTruckService = FoodTruckService()
+    //let nearbyList = ["a", "b", "c"]
+    var nearbyList: [String] = []
     let coordinate0 = CLLocation(latitude: 37.7749, longitude: -122.4194)
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nearbyList.count
+            return nearbyList.count
     }
     
     
@@ -32,20 +36,27 @@ class NearbyViewController: UITableViewController, UITableViewDelegate, UITableV
      */
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
-        for foodTruck in self.foodTrucks{
-            let coordinate1 = CLLocation(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
-            let distanceInMeters = coordinate0.distance(from: coordinate1)
-            if distanceInMeters <= 1609 {
-                nearbyList.append(foodTruck.name)
-            }
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myTableView.delegate = self
-        myTableView.dataSource = self
+        service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
+            guard let trucks = foodTrucks else {
+                print("Error fetching food trucks.")
+                return
+            }
+
+            for foodTruck in trucks{
+            let coordinate1 = CLLocation(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+                let distanceInMeters = self.coordinate0.distance(from: coordinate1)
+            if distanceInMeters <= 1609 {
+                self.nearbyList.append(foodTruck.name)
+            }
+        }
+            self.myTableView.reloadData()
+            print(self.nearbyList.count)
         // Do any additional setup after loading the view, typically from a nib.
+    }
     }
     
     override func didReceiveMemoryWarning() {

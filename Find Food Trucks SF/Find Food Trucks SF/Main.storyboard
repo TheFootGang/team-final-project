@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2M2-Yb-VPW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,8 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="uIm-Yl-CVJ">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VC1-dR-ia0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VC1-dR-ia0">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VC1-dR-ia0" id="9jH-jC-jng">
@@ -30,16 +35,20 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="u8F-53-dWj" id="RnJ-aa-CkM"/>
-                            <outlet property="delegate" destination="u8F-53-dWj" id="1PI-Pf-gYm"/>
+                            <outlet property="dataSource" destination="u8F-53-dWj" id="tAU-Wb-sLF"/>
+                            <outlet property="delegate" destination="u8F-53-dWj" id="J0o-ew-zXx"/>
+                            <outlet property="prefetchDataSource" destination="u8F-53-dWj" id="YM1-YQ-4Na"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Nearby" id="Muv-Nr-W7W"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myTableView" destination="dmk-OX-W3a" id="5yZ-4I-h9k"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9Q-9i-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-577" y="671"/>
+            <point key="canvasLocation" x="348" y="1159"/>
         </scene>
         <!--BookmarkViewController-->
         <scene sceneID="6vp-ji-NGQ">
@@ -352,6 +361,6 @@
         <image name="truck" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RwG-tg-m6O"/>
+        <segue reference="cwa-fI-603"/>
     </inferredMetricsTieBreakers>
 </document>
