@@ -71,7 +71,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func styleTransportButtons(button: UIButton) {
-        button.layer.borderWidth = 3.0;
+        button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 10.0
     }
