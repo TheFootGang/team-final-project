@@ -15,7 +15,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var myTableView: UITableView!
     
     var foodTrucks: [FoodTruck] = []
-    var nearbyList: [FoodTruck] = []
+    var nearbyList: [(FoodTruck, Double)] = []
     let locationManager = CLLocationManager()
     let service: FoodTruckService = FoodTruckService()
     let defaultCoords = CLLocation(latitude: 37.7749, longitude: -122.4194)
@@ -60,10 +60,14 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             let distanceInMeters = location.distance(from: truckLocation).magnitude
             
             if distanceInMeters <= distance {
-                self.nearbyList.append(truck)
+                self.nearbyList.append((truck, distanceInMeters))
             
                 // TODO: sort the list by distance
             }
+            let nearbySortedList = nearbyList.sorted(by: { $0.1 < $1.1 })
+            self.nearbyList = nearbySortedList
+            self.myTableView.reloadData()
+            
         }
     }
     
@@ -73,7 +77,10 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = nearbyList[indexPath.row].name
+        //let stringFromDouble = "\(nearbyList[indexPath.row].1)"
+        let stringFromDouble = String(format: "%.0f", nearbyList[indexPath.row].1)
+        let paddedStr = stringFromDouble.leftPadding(toLength: 35, withPad: " ")
+        cell.textLabel?.text = nearbyList[indexPath.row].0.name + paddedStr + "m"
         return cell
     }
     
@@ -86,8 +93,9 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             if let indexPath = myTableView.indexPathForSelectedRow {
                 let selectedRow = indexPath.row
                 let vc = segue.destination as! FoodTruckDetailViewController
-                vc.foodTruck = self.nearbyList[selectedRow]
+                vc.foodTruck = self.nearbyList[selectedRow].0
             }
         }
     }
+    
 }

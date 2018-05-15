@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E42792120AA61130004C096 /* StringPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42792020AA61130004C096 /* StringPadding.swift */; };
 		1ED11C5F20A8360D0013B1C4 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */; };
 		5521B35E208FCFD3007AB40E /* FoodTruckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */; };
 		5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E42792020AA61130004C096 /* StringPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringPadding.swift; sourceTree = "<group>"; };
 		1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		5521B35D208FCFD3007AB40E /* FoodTruckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTruckAnnotation.swift; sourceTree = "<group>"; };
 		5521B35F208FD0BC007AB40E /* FoodTruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckDetailViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				55A620DE207C9007008F0834 /* AppDelegate.swift */,
 				552A9DB120A399EB005E483A /* MapMarkers */,
 				55D3615620967BDC006063D4 /* Main.storyboard */,
+				1E42792020AA61130004C096 /* StringPadding.swift */,
 				55A620E7207C900D008F0834 /* LaunchScreen.storyboard */,
 				1ED11C5E20A8360D0013B1C4 /* NearbyViewController.swift */,
 				55A620EA207C900D008F0834 /* Info.plist */,
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E42792120AA61130004C096 /* StringPadding.swift in Sources */,
 				552A9DB020A3999D005E483A /* FoodTruckClusterView.swift in Sources */,
 				5521B360208FD0BC007AB40E /* FoodTruckDetailViewController.swift in Sources */,
 				55A620DF207C9007008F0834 /* AppDelegate.swift in Sources */,
