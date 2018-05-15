@@ -25,6 +25,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     var currentTransportType: MKDirectionsTransportType = .walking
     var lastTransportButtonTapped: UIButton?
     
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var etaLabel: UILabel!
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var carTransportButton: UIButton!
@@ -96,6 +97,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             carTransportButton.removeFromSuperview()
             etaLabel.removeFromSuperview()
             directionsLabel.removeFromSuperview()
+            distanceLabel.removeFromSuperview()
             
             let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
             let region = MKCoordinateRegion(center: foodTruckCoords, span: span)
@@ -181,6 +183,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             }
             
             let route = response.routes[0]
+            let distance = route.distance.magnitude.rounded()
             let eta = route.expectedTravelTime
             let etaMins = (eta.magnitude / 60).rounded()
             let mapRect = route.polyline.boundingMapRect
@@ -188,6 +191,7 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             self.mapView.setRegion(coordinateRegion, animated: false)
             self.mapView.add(route.polyline, level: .aboveRoads)
             self.etaLabel.text = "(\(etaMins) min)"
+            self.distanceLabel.text = "\(distance)m"
         })
     }
     
