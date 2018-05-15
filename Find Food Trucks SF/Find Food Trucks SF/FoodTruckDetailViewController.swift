@@ -92,6 +92,10 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
             
             styleTransportButtons(button: walkTransportButton)
             styleTransportButtons(button: carTransportButton)
+            
+            // hide default text when view loads
+            etaLabel.text = ""
+            distanceLabel.text = ""
         } else {
             walkTransportButton.removeFromSuperview()
             carTransportButton.removeFromSuperview()
