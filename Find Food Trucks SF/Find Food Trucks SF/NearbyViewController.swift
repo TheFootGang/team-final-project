@@ -12,17 +12,13 @@ import CoreLocation
 
 class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet weak var myTableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     var foodTrucks: [FoodTruck] = []
     var nearbyList: [(FoodTruck, Double)] = []
     let locationManager = CLLocationManager()
     let service: FoodTruckService = FoodTruckService()
-    let defaultCoords = CLLocation(latitude: 37.7749, longitude: -122.4194)
-
-    override func viewDidAppear(_ animated: Bool) {
-        myTableView.reloadData()
-    }
+    let defaultLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +36,14 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
                     self.filterTrucks(location: userLocation, distance: mile)
                 }
             } else {
+                let mile = 1609.34
+                self.filterTrucks(location: self.defaultLocation, distance: mile)
                 // change the ui to display to a label
                 // asking the user for location permissions
                 // and a button that leads to app settings location services
             }
             
-            self.myTableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -66,7 +64,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             }
             let nearbySortedList = nearbyList.sorted(by: { $0.1 < $1.1 })
             self.nearbyList = nearbySortedList
-            self.myTableView.reloadData()
+            self.tableView.reloadData()
             
         }
     }
@@ -76,11 +74,10 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        //let stringFromDouble = "\(nearbyList[indexPath.row].1)"
-        let stringFromDouble = String(format: "%.0f", nearbyList[indexPath.row].1)
-        let paddedStr = stringFromDouble.leftPadding(toLength: 35, withPad: " ")
-        cell.textLabel?.text = nearbyList[indexPath.row].0.name + paddedStr + "m"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyCell") as! NearbyCell
+        let truck = self.nearbyList[indexPath.row]
+        cell.nameLabel.text = truck.0.name
+        cell.distanceLabel.text = "\(truck.1.magnitude.rounded())m"
         return cell
     }
     
@@ -90,7 +87,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "nearbyToDetailSegueId" {
-            if let indexPath = myTableView.indexPathForSelectedRow {
+            if let indexPath = tableView.indexPathForSelectedRow {
                 let selectedRow = indexPath.row
                 let vc = segue.destination as! FoodTruckDetailViewController
                 vc.foodTruck = self.nearbyList[selectedRow].0
