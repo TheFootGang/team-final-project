@@ -10,7 +10,7 @@
 import UIKit
 import CoreLocation
 
-class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class NearbyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +22,10 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.distanceFilter = CLLocationDistance(1)
+        
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let trucks = foodTrucks else {
                 print("Error fetching food trucks.")
@@ -29,43 +33,41 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             }
             
             self.foodTrucks = trucks
-            
-            if self.userAllowsLocation() {
-                if let userLocation = self.locationManager.location {
-                    let mile = 1609.34
-                    self.filterTrucks(location: userLocation, distance: mile)
-                }
-            } else {
-                let mile = 1609.34
-                self.filterTrucks(location: self.defaultLocation, distance: mile)
-                // change the ui to display to a label
-                // asking the user for location permissions
-                // and a button that leads to app settings location services
-            }
-            
+            self.filterTrucksOnUserLocation()
             self.tableView.reloadData()
         }
+    }
+    
+    func filterTrucksOnUserLocation() {
+        let mile = 1609.34
+        if userAllowsLocation(), let userLocation = locationManager.location {
+            filterTrucks(location: userLocation, distance: mile)
+        } else {
+            filterTrucks(location: defaultLocation, distance: mile)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        filterTrucksOnUserLocation()
+        tableView.reloadData()
     }
     
     func userAllowsLocation() -> Bool {
         return CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .authorizedWhenInUse
     }
     
-    // loops over all the foodtrucks and filter according to coordinates and distance
     func filterTrucks(location: CLLocation, distance: Double) {
-        for truck in self.foodTrucks {
+        for truck in foodTrucks {
             let truckLocation = CLLocation(latitude: truck.latitude, longitude: truck.longitude)
             let distanceInMeters = location.distance(from: truckLocation).magnitude
             
             if distanceInMeters <= distance {
-                self.nearbyList.append((truck, distanceInMeters))
-            
-                // TODO: sort the list by distance
+                nearbyList.append((truck, distanceInMeters))
             }
-            let nearbySortedList = nearbyList.sorted(by: { $0.1 < $1.1 })
-            self.nearbyList = nearbySortedList
-            self.tableView.reloadData()
             
+            let nearbySortedList = nearbyList.sorted(by: { $0.1 < $1.1 })
+            nearbyList = nearbySortedList
+            tableView.reloadData()
         }
     }
     
@@ -75,7 +77,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nearbyCell") as! NearbyCell
-        let truck = self.nearbyList[indexPath.row]
+        let truck = nearbyList[indexPath.row]
         cell.nameLabel.text = truck.0.name
         cell.distanceLabel.text = "\(truck.1.magnitude.rounded())m"
         return cell
@@ -90,7 +92,7 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             if let indexPath = tableView.indexPathForSelectedRow {
                 let selectedRow = indexPath.row
                 let vc = segue.destination as! FoodTruckDetailViewController
-                vc.foodTruck = self.nearbyList[selectedRow].0
+                vc.foodTruck = nearbyList[selectedRow].0
             }
         }
     }
