@@ -116,8 +116,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         } else {
             bookmarkButton.setImage(UIImage(named:"bookmark"), for: .normal)
         }
-        
-        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
     }
     
     func userAllowsLocation() -> Bool {

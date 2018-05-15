@@ -123,7 +123,6 @@ extension MapViewController: MKMapViewDelegate {
                     return
             }
             
-            // pass data to new vc
             vc.foodTruck = foodTruck
         }
     }
