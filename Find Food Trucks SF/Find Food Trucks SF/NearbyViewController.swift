@@ -38,13 +38,11 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    func filterTrucksOnUserLocation() {
-        let mile = 1609.34
-        if userAllowsLocation(), let userLocation = locationManager.location {
-            filterTrucks(location: userLocation, distance: mile)
-        } else {
-            filterTrucks(location: defaultLocation, distance: mile)
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.nearbyList.removeAll()
+        self.filterTrucksOnUserLocation()
+        self.tableView.reloadData()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -54,6 +52,16 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
     
     func userAllowsLocation() -> Bool {
         return CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .authorizedWhenInUse
+    }
+    
+    func filterTrucksOnUserLocation() {
+        let mile = 1609.34
+        if userAllowsLocation(), let userLocation = locationManager.location {
+            filterTrucks(location: userLocation, distance: mile)
+        } else {
+            filterTrucks(location: defaultLocation, distance: mile)
+        }
+        
     }
     
     func filterTrucks(location: CLLocation, distance: Double) {
@@ -67,7 +75,6 @@ class NearbyViewController: UIViewController, UITableViewDataSource, UITableView
             
             let nearbySortedList = nearbyList.sorted(by: { $0.1 < $1.1 })
             nearbyList = nearbySortedList
-            tableView.reloadData()
         }
     }
     
