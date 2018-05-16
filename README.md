@@ -15,30 +15,28 @@ View description for food trucks that user has clicked as markers on the map<br>
 Include various details, such as food truck name, food items, business hours, food truck location, etc...<br>
 
 ## Nice to have Features<br>
-Search food trucks based on keyword<br>
-Search food trucks based on certain type of foods<br>
-Search food trucks based on whether store is currently ‘open’ or ‘closed’<br>
-Ability to register for an account <br>
-Star Rating System 1-5 for registered accounts <br>
-Ability to create reviews for registed accounts <br>
-Top rated section listing all the top food trucks <br>
+Out of class scope.
+* Search for specific food items/type of foods, maybe category based
+* Expanding dataset to show more food trucks
+* Make it easier to remove and edit bookmarks
+
 
 ## Feature Implementation & Roles<br>
 Owner: Stanley Liu<br>
 ETA: 96 Hours<br>
-Feature: Getting the data from API and parsing json data and splashscreen<br>
+Feature: Bookmark and Clustering the map<br>
 
 Owner: Brandon Yu<br>
 ETA: 96 Hours<br>
-Feature: Displaying markers in map view based on coordinates<br>
+Feature: NearbyList, AnnotationView, Displaying map<br>
 
 Owner: Mark Sorianno<br>
 ETA: 96 Hours<br>
-Feature: Displaying the food truck vendor detail screen<br>
+Feature: FoodTruckDetail, Segue Annotations, displaying food truck details<br>
 
 Owner: Wagner Allono<br>
 ETA: 96 Hours<br>
-Feature: Ability to bookmark food truck vendors for future reference<br>
+Feature: Directions via walk and car, eta, and distance in FoodTruckDetail<br>
 
 ## Wireframes
 ![Screenshot](wireframes.png)
