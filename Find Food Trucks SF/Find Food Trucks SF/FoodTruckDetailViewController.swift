@@ -22,7 +22,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     var foodTruck: FoodTruck!
     var region: MKCoordinateRegion!
     var locationManager = CLLocationManager()
-    var currentTransportType: MKDirectionsTransportType = .walking
     var lastTransportButtonTapped: UIButton?
     
     @IBOutlet weak var distanceLabel: UILabel!
@@ -44,21 +43,27 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
         lastTransportButtonTapped = sender
         sender.backgroundColor = .lightGray
         
+        var transportType: MKDirectionsTransportType!
+        
         switch(sender.tag) {
             case TransportType.Walk.rawValue:
-                print("Tapped walk");
-                currentTransportType = .walking
+                transportType = .walking
                 break
             case TransportType.Car.rawValue:
-                print("Tapped car");
-                currentTransportType = .automobile
+                transportType = .automobile
                 break
             default:
                 break
         }
         
-        guard let directions = getDirections() else { return }
-        displayDirectionPath(directions: directions)
+        if let userLocation = locationManager.location {
+            let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
+            let userCoords = userLocation.coordinate
+            let directions = getDirections(source: userCoords, destination: foodTruckCoords, transportType: transportType)
+            displayDirectionPath(directions: directions)
+        } else {
+            return
+        }
     }
     
     @IBAction func bookmarkButtonClicked(_ sender: UIButton) {
@@ -126,18 +131,6 @@ class FoodTruckDetailViewController: UIViewController, UITableViewDataSource, UI
     
     func userAllowsLocation() -> Bool {
         return CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .authorizedWhenInUse
-    }
-    
-    func getDirections() -> MKDirections? {
-        if let userLocation = locationManager.location {
-            let foodTruckCoords = CLLocationCoordinate2D(latitude: foodTruck.latitude, longitude: foodTruck.longitude)
-            let userCoords = userLocation.coordinate
-            let transportType = currentTransportType
-            let directions = getDirections(source: userCoords, destination: foodTruckCoords, transportType: transportType)
-            return directions
-        } else {
-            return nil
-        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
