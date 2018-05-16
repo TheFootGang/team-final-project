@@ -11,23 +11,15 @@ import UIKit
 class BookmarksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func unwindToBookmarksFromDetail(segue:UIStoryboardSegue) {}
 
     var bookmarks: [FoodTruck] = []
     let service: FoodTruckService = FoodTruckService()
     let userDefaults = UserDefaults.standard
-    @IBAction func tapRefresh(_ sender: UIButton) {
-        
-        viewDidLoad()
-        for bookmarked in self.bookmarks {
-            print(bookmarked.name)
-        }
-        self.tableView.reloadData()
-    }
     
     override func viewDidLoad() {
-        self.bookmarks.removeAll()
         super.viewDidLoad()
+        
+        self.bookmarks.removeAll()
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
             guard let trucks = foodTrucks else {
                 print("Error fetching food trucks.")
@@ -46,11 +38,9 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
     override func viewDidAppear(_ animated: Bool) {
+        self.bookmarks.removeAll()
+        viewDidLoad()
         self.tableView.reloadData()
     }
     
@@ -62,7 +52,7 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkCell") as! BookmarkCell
         let bookmark = bookmarks[indexPath.row]
         cell.nameLabel.text = bookmark.name
-        cell.addressLabel.text = bookmark.address
+        cell.addressLabel.text = bookmark.address.capitalized
         
         return cell
     }
@@ -77,7 +67,6 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
                 let selectedRow = indexPath.row
                 let vc = segue.destination as! FoodTruckDetailViewController
                 vc.foodTruck = self.bookmarks[selectedRow]
-                vc.unwindSegueId = "unwindToBookmarksSegueId"
             }
         }
     }

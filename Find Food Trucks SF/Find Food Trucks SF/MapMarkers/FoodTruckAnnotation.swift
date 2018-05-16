@@ -2,9 +2,11 @@
 //  FoodTruckAnnotation.swift
 //  Find Food Trucks SF
 //
-//  Created by Stanley on 4/24/18.
+//  Created by Brandon on 4/23/18
+//  Edited by Stanley on 4/24/18.
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
+
 
 import MapKit
 
@@ -14,6 +16,7 @@ class FoodTruckAnnotation: NSObject, MKAnnotation {
     let subtitle: String?
     let coordinate: CLLocationCoordinate2D
     
+    
     init(id: Int, title: String, subtitle: String, _ coordinate: CLLocationCoordinate2D) {
         self.id = id
         self.title = title
@@ -22,4 +25,5 @@ class FoodTruckAnnotation: NSObject, MKAnnotation {
         
         super.init()
     }
+    
 }

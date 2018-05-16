@@ -16,7 +16,6 @@ struct FoodTruck {
     let longitude: Double
     let daysHours: String
     let foodItems: [String]
-    let locationDescription: String
 
     init?(json: [String: Any]) {
         guard
@@ -41,12 +40,6 @@ struct FoodTruck {
             self.foodItems = foodItems.components(separatedBy: ": ")
         } else {
             self.foodItems = []
-        }
-        
-        if let locationDescription = json["locationdescription"] as? String {
-            self.locationDescription = locationDescription
-        } else {
-            self.locationDescription = ""
         }
     }
     

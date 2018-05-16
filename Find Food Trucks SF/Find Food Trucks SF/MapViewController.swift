@@ -4,6 +4,7 @@
 //
 //  Created by Mark on 4/22/18.
 //  Edited by Brandon on 4/23/18
+//  Edited by Stanley on 5/9/18
 //  Copyright © 2018 TheFootGang. All rights reserved.
 //
 
@@ -13,44 +14,67 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
-    @IBAction func unwindToMapViewFromDetail(segue:UIStoryboardSegue) {}
-
-    var foodTrucks: [FoodTruck] = []
-    let service: FoodTruckService = FoodTruckService()
     
+    var foodTrucks: [FoodTruck] = []
+    
+    let defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), span: MKCoordinateSpanMake(0.02, 0.02))
+    
+    let service: FoodTruckService = FoodTruckService()
     let locationManager = CLLocationManager()
-    var region: MKCoordinateRegion!
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        mapView.delegate = self
+        
+        mapView.register(FoodTruckMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(FoodTruckClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+        
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+        }
+        
+        addMapAnnotations()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = CLLocationDistance(1)
+            locationManager.startUpdatingLocation()
+        } else {
+            mapView.setRegion(defaultRegion, animated: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if self.region != nil {
-            mapView.setRegion(region, animated: true)
-        }
-        addMapAnnotations()
+        super.viewWillAppear(animated)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.02, 0.02)
-        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-        
-        self.region = region
+        let coordinates: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let span = MKCoordinateSpanMake(0.02, 0.02)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(coordinates, span)
         self.mapView.setRegion(region, animated: false)
-        self.mapView.showsUserLocation = true
     }
+
     
     private func addMapAnnotations() {
         service.getFoodTrucks() { [unowned self] (foodTrucks: [FoodTruck]?) in
@@ -63,29 +87,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             for foodTruck in self.foodTrucks {
                 let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(foodTruck.latitude, foodTruck.longitude)
+                
                 let annotation = FoodTruckAnnotation(id: foodTruck.id, title: foodTruck.name, subtitle: foodTruck.daysHours, coordinate)
+                
                 self.mapView.addAnnotation(annotation)
             }
         }
     }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered:Bool) {
+        activityIndicatorView.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
 }
 
+
 extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? FoodTruckAnnotation else { return nil }
-        let identifier = "marker"
-        var view: MKMarkerAnnotationView
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        } else {
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -3, y: 3)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "mapToDetailSegueId", sender: view)
         }
-        return view
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,20 +118,12 @@ extension MapViewController: MKMapViewDelegate {
                 let annotation = annotationView.annotation as? FoodTruckAnnotation,
                 let id = annotation.id,
                 let foodTruck = self.foodTrucks.first(where: { $0.id == id })
-            else {
-                print("Error")
-                return
+                else {
+                    print("Error")
+                    return
             }
             
-            // pass data to new vc
             vc.foodTruck = foodTruck
-            vc.unwindSegueId = "unwindToMapViewSegueId"
-        }
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "mapToDetailSegueId", sender: view)
         }
     }
 }
