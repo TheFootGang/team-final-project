@@ -1,4 +1,4 @@
-# team-final-project
+# Find Food Truck SF
 
 ## Team Members
  * Stanley Liu
